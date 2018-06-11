@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    
+<!-- To anyone reviewing this page.. Other than data or content delivered from links, everything will be set up and included here on this page. As such, the page will seem more verbose than my standard practice. -->
+
+<head>
+    <title>Employee Profile</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="description" content="Employee Profile for ABC Credit Union">
+    <meta name="keywords" content="Employee Profile">
+    <meta name="author" content="Justin Tam">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
+    <link rel="shortcut icon" href="https://png.icons8.com/color/1600/abc.png">
+    
+    <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> /* Normally would have abstracted css styles to separate file */-->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    
+    <style>
+        /* #### Mobile Phones Portrait #### */
+        @media screen and (max-device-width: 480px) and (orientation: portrait){
+            
+        }
+        
+        /* #### Mobile Phones Landscape #### */
+        @media screen and (max-width: 640px) and (orientation: landscape){
+
+        }
+        
+        /* #### Mobile Phones Portrait or Landscape #### */
+        @media screen and (max-device-width: 640px){
+
+        }
+        
+        /* #### iPhone 4+ Portrait or Landscape #### */
+        @media screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2){
+        
+        }
+        
+        /* #### Tablets Portrait or Landscape #### */
+        @media screen and (min-device-width: 768px) and (max-device-width: 1024px){
+          /* some CSS here */
+        }
+        
+        /* #### Desktops #### */
+        @media screen and (min-device-width: 1024px){
+          .header {
+            min-width:350px;
+          }
+        }
+        
+        body {
+            background: linear-gradient(rgba(255, 255, 255, 0.6),
+                                        rgba(255, 255, 255, 0.6),
+                                        rgba(255, 255, 255, 0.6),
+                                        rgba(255, 255, 255, 0.6)),
+                                        url("http://publicdomainarchive.com/wp-content/uploads/2014/02/public-domain-images-free-high-resolution-quality-photos-unsplash-0025.jpg") no-repeat fixed center;
+        }
+        .anchor {
+            position: relative;
+        }
+        .btn-primary {
+            margin-top:25px;
+        }
+        .container {
+            background: lightblue;
+        }
+        .fa-check, .fa-times, .fa-refresh {
+            position: absolute;
+            width: auto;
+            right: 1%;
+        }
+        .fa-check {
+            top: 62%;
+            color: green;
+        }
+        .fa-times {
+            top: 47%;
+            color: red;
+        }
+        .fa-refresh {
+            top: 50%;
+            color: yellow;
+        }
+        .skills .fa-check, .hobbies .fa-check {
+            top: 55%;
+        }
+        .skills .fa-times, .hobbies .fa-times {
+            top: 48%;
+        }
+        .skills .fa-refresh, .hobbies .fa-refresh {
+            top: 50%;
+        }
+        .float-right {
+            float:right;
+        }
+        .form-control {
+            margin-bottom:5px;
+        }
+        .form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color:    #bababa;
+        }
+        .form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color:    #bababa;
+            opacity:  1;
+        }
+        .form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color:    #bababa;
+            opacity:  1;
+        }
+        .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color:    #bababa;
+        }
+        .form-control::-ms-input-placeholder { /* Microsoft Edge */
+            color:    #bababa;
+        }
+        .form-control::placeholder { /* Everything else */
+            color:    #bababa;
+        }
+        .help-block {
+            color: red;
+        }
+        .submit-button {
+            margin-top: 15px;
+            padding-bottom: 25px;
+        }
+        fieldset {
+            border: 1px groove;
+            padding: 0 25px;
+            margin-top: 10px;
+        }
+        legend {
+            width: inherit;
+            padding: 0 10px;
+            font-weight: bold;
+            color: gray;
+        }
+        select:invalid { color: gray; }
+        textarea.form-control { height: 200px; }
+    </style>
+    
+    <script>
+        function getCUDLText() {
+            $.ajax({
+                url: "https://dp.cudl.com/CUDLConnect/DevTest.aspx",
+                dataType: "jsonp",
+                success: function( data ) {
+                    $('#dynamic_id').val( data['DynamicDevText'] );
+                }
+            });
+        }
+        $(
+            function() {
+                getCUDLText();
+                var form = $('#profile');
+                $('.nav-link').on('click', function(){
+                    $('.navbar-collapse').collapse('hide');
+                });
+                var navHeight = $('.navbar').height();
+                $('.anchor').css({ top: 0 - navHeight - (navHeight/4) + 'px' });
+                $('.container').css({ marginTop: navHeight + (navHeight/3) + 'px' });
+                $('.btn-primary').on('click', function() {
+                    if (form.data('bootstrapValidator').isValid()) {
+                        $('#submitModal').modal('show');
+                    }
+                });
+                $('#submitModal').on('hide.bs.modal', function() {
+                    form.bootstrapValidator('resetForm', true);
+                    $("html, body").animate({ scrollTop: 0 }, 1000);
+                    getCUDLText();
+                });
+                
+                /* Validation */
+                
+                form.bootstrapValidator({
+                    // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+                    feedbackIcons: {
+                        valid: 'fa fa-check',
+                        invalid: 'fa fa-times',
+                        validating: 'fa fa-refresh'
+                    },
+                    fields: {
+                        full_name: {
+                            validators: {
+                                regexp: {
+                                    regexp: /(.*[a-z]){2}/i,
+                                    message: 'Please enter at least 2 letters'
+                                },
+                                notEmpty: {
+                                    message: 'Please enter your full name'
+                                }
+                            }
+                        },
+                        address: {
+                            validators: {
+                                regexp: {
+                                    regexp: /(.*[a-z0-9 _]){5}/i,
+                                    message: 'Please enter at least 5 characters'
+                                },
+                                notEmpty: {
+                                    message: 'Please enter your street address'
+                                }
+                            }
+                        },
+                        city: {
+                            validators: {
+                                regexp: {
+                                    regexp: /(.*[a-z]){3}/i,
+                                    message: 'Please enter at least 3 letters'
+                                },
+                                notEmpty: {
+                                    message: 'Please enter your city'
+                                }
+                            }
+                        },
+                        state: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please select your state'
+                                }
+                            }
+                        },
+                        zip: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please enter your zip code'
+                                },
+                                regexp: {
+                                    regexp: /^\d{5}(-\d{4})?$/,
+                                    message: 'Please enter a valid zip code'
+                                }
+                            }
+                        }
+                    }
+                })
+                .on('success.form.bv', function(e) {
+                    $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+                        $('#profile').data('bootstrapValidator').resetForm();
+        
+                    // Prevent form submit
+                    e.preventDefault();
+        
+                    // Get the form instance
+                    var $form = $(e.target);
+        
+                    // Get the BootstrapValidator instance
+                    var bv = $form.data('bootstrapValidator');
+        
+                    // Use ajax to submit form data
+                    $.post($form.attr('action'), $form.serialize(), function(result) {
+                        console.log(result);
+                    }, 'json');
+                });
+            }
+        );
+    </script>
+</head>
+
+<body>
+    
+<div class="header">
+    <nav class="navbar navbar-toggleable-md navbar-dark bg-dark fixed-top">
+        <h1 class="navbar-brand" mb-2>ABC Company</h1>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav float-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="#details">Personal Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#hobbies">Hobbies</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    <form id="profile" method="post">
+    
+        <div class="anchor" id="details"></div>
+        <fieldset>
+            
+            <legend>Personal Details</legend>
+            
+            <div class="form-group position-relative"> <!-- Full Name -->
+                <i class="fa fa-user"></i>
+            	<label for="full_name_id" class="control-label">Full Name</label>
+            	<input type="text" class="form-control" id="full_name_id" name="full_name" placeholder="John Smith" required>
+            </div>
+            
+            <div class="form-group position-relative"> <!-- Street 1 -->
+                <i class="fa fa-home"></i>
+            	<label for="address_id" class="control-label">Street Address</label>
+            	<input type="text" class="form-control" id="address_id" name="address" placeholder="Street address, Apartment, Suite, Unit, Building, P.O. box, Company name" required>
+            </div>
+            
+            <div class="form-group position-relative"> <!-- City -->
+                <i class="fa fa-home"></i>
+            	<label for="city_id" class="control-label">City</label>
+            	<input type="text" class="form-control" id="city_id" name="city" placeholder="Austin" required>
+            </div>									
+            
+            <div class="form-group position-relative"> <!-- State * I would have had this populated from another data source -->
+                <i class="fa fa-home"></i>
+            	<label for="state_id" class="control-label">State</label>
+            	<select class="form-control" id="state_id" name="state" required>
+            		<option value="" disabled selected hidden>Select a State</option>
+            		<option value="AL">Alabama</option>
+            		<option value="AK">Alaska</option>
+            		<option value="AZ">Arizona</option>
+            		<option value="AR">Arkansas</option>
+            		<option value="CA">California</option>
+            		<option value="CO">Colorado</option>
+            		<option value="CT">Connecticut</option>
+            		<option value="DE">Delaware</option>
+            		<option value="DC">District Of Columbia</option>
+            		<option value="FL">Florida</option>
+            		<option value="GA">Georgia</option>
+            		<option value="HI">Hawaii</option>
+            		<option value="ID">Idaho</option>
+            		<option value="IL">Illinois</option>
+            		<option value="IN">Indiana</option>
+            		<option value="IA">Iowa</option>
+            		<option value="KS">Kansas</option>
+            		<option value="KY">Kentucky</option>
+            		<option value="LA">Louisiana</option>
+            		<option value="ME">Maine</option>
+            		<option value="MD">Maryland</option>
+            		<option value="MA">Massachusetts</option>
+            		<option value="MI">Michigan</option>
+            		<option value="MN">Minnesota</option>
+            		<option value="MS">Mississippi</option>
+            		<option value="MO">Missouri</option>
+            		<option value="MT">Montana</option>
+            		<option value="NE">Nebraska</option>
+            		<option value="NV">Nevada</option>
+            		<option value="NH">New Hampshire</option>
+            		<option value="NJ">New Jersey</option>
+            		<option value="NM">New Mexico</option>
+            		<option value="NY">New York</option>
+            		<option value="NC">North Carolina</option>
+            		<option value="ND">North Dakota</option>
+            		<option value="OH">Ohio</option>
+            		<option value="OK">Oklahoma</option>
+            		<option value="OR">Oregon</option>
+            		<option value="PA">Pennsylvania</option>
+            		<option value="RI">Rhode Island</option>
+            		<option value="SC">South Carolina</option>
+            		<option value="SD">South Dakota</option>
+            		<option value="TN">Tennessee</option>
+            		<option value="TX">Texas</option>
+            		<option value="UT">Utah</option>
+            		<option value="VT">Vermont</option>
+            		<option value="VA">Virginia</option>
+            		<option value="WA">Washington</option>
+            		<option value="WV">West Virginia</option>
+            		<option value="WI">Wisconsin</option>
+            		<option value="WY">Wyoming</option>
+            	</select>					
+            </div>
+            
+            <div class="form-group position-relative"> <!-- Zip Code -->
+                <i class="fa fa-home"></i>
+            	<label for="zip_id" class="control-label">Zip Code</label>
+            	<input type="text" class="form-control" id="zip_id" name="zip" placeholder="#####" required>
+            </div>
+            
+        </fieldset>
+    
+        <div class="anchor" id="skills"></div>
+        <fieldset>
+            
+            <legend>Technical Background</legend>
+            
+            <div class="form-group position-relative skills"> <!-- Skills -->
+                <i class="fa fa-power-off"></i>
+            	<label for="skill_id" class="control-label">Technical Skills</label>
+            	<textarea class="form-control" id="skill_id" name="skill" placeholder="Angular, React, C#, Java, SQL, etc." required></textarea>
+            </div>
+
+        </fieldset>
+        
+        <div class="anchor" id="hobbies"></div>
+        <fieldset>
+            
+            <legend>Hobbies</legend>
+            
+            <div class="form-group position-relative hobbies"> <!-- Hobbies -->
+                <i class="fa fa-heart"></i>
+            	<label for="hobby_id" class="control-label">Passion Pursuits</label>
+            	<textarea class="form-control" id="hobby_id" name="hobby" placeholder="Flying, jumping, running, etc." required></textarea>
+            </div>
+        
+        </fieldset>
+        
+        <div class="form-group submit-button"> <!-- Submit Button -->
+            <label for="dynamic_id" class="control-label">Dynamic Text</label>
+        	<input type="text" class="form-control" id="dynamic_id" name="dynamic" disabled required>
+        	<button type="submit" class="btn btn-primary">Submit</button>
+        	
+            <!-- Modal -->
+            <div id="submitModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+            
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Profile Saved!</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <p>(This doesn't submit anything at this time)</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                  </div>
+                </div>
+            
+              </div>
+            </div>
+        </div>
+    
+    </form>
+
+</div> <!-- end .container -->
+
+<footer class="footer text-center small">
+    <p>Copyright © 2018 ABC Company</p>
+</footer>
+
+</body>
+
+</html>
