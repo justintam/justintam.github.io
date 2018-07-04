@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!--
+
+Written by Justin Tam in Angular
+
+To anyone reviewing this page, other than data or content delivered from links,
+everything will be set up and included here on this page.
+As such, the page will seem more verbose than my standard practice.
+
+-->
+
+<head>
+    <title>Genealogy Search</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="description" content="Genealogy Search">
+    <meta name="keywords" content="Genealogy">
+    <meta name="author" content="Justin Tam">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script type="text/javascript" src="problem1.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+	<style>
+		.fa-search {
+			margin-top: 45%;
+			margin-left: 5px;
+			margin-right: 10px;
+		}
+		body {
+			margin-top: 50px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container" ng-app="mostApp" ng-controller="mainController">
+	  
+	  <!-- This section contains important metrics of the table below -->
+	  
+	  <div class="alert alert-info">
+		<p>Year of Highest Population: {{ maxYear() }}</p>
+		<p>Total Records: {{ people.length }}</p>
+	  </div>
+	  
+	  <!-- This is a search input for the table below -->
+	  
+	  <form>
+		<div class="form-group">
+		  <div class="input-group">
+			<div class="input-group-addon"><i class="fa fa-search"></i></div>
+			<input type="text" class="form-control" placeholder="Search Records" ng-model="searchPerson">
+		  </div>
+		</div>
+	  </form>
+	  
+	  <!-- Table -->
+	  
+	  <table class="table table-bordered table-striped">
+		
+		<!-- Table Header -->
+		
+		<thead>
+		  <tr>
+			<td>
+			  <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+				Name 
+				<span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+			  </a>
+			</td>
+			<td>
+			  <a href="#" ng-click="sortType = 'birth'; sortReverse = !sortReverse">
+				Birth 
+				<span ng-show="sortType == 'birth' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType == 'birth' && sortReverse" class="fa fa-caret-up"></span>
+			  </a>
+			</td>
+			<td>
+			  <a href="#" ng-click="sortType = 'death'; sortReverse = !sortReverse">
+				Death
+				<span ng-show="sortType == 'death' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType == 'death' && sortReverse" class="fa fa-caret-up"></span>
+			  </a>
+			</td>
+		  </tr>
+		</thead>
+		
+		
+		<!-- Builds out Table with each row representing a person -->
+		
+		<tbody>
+		  <tr ng-repeat="person in people | orderBy:sortType:sortReverse | filter:searchPerson">
+			<td>{{ person.name }}</td>
+			<td>{{ person.birth }}</td>
+			<td>{{ person.death }}</td>
+		  </tr>
+		</tbody>
+	  </table>
+	</div>
+</body>
+</html>
