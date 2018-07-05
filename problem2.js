@@ -27,6 +27,9 @@ function playSpin(hash, won, bet, id) {
         },
         failure:function(){
 			alert("Failed!");
+        },
+        error:function(){
+			alert("Error!");
         }
     });
 }
