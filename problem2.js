@@ -29,7 +29,11 @@ function playSpin(hash, won, bet, id) {
 			alert("Failed!");
         },
         error:function(){
-			alert("Error!");
+			alert("Error!" +
+			      "\nPlayer: " + data["name"] +
+			      "\nCredits: " + data["credits"] +
+			      "\nSpins: " + data["spins"] +
+			      "\nAverage: " + data["average"]);
         }
     });
 }
