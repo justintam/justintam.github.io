@@ -487,6 +487,7 @@ header.masthead .intro-text .intro-heading {
 }
 
 .timeline .timeline-heading h4.subheading {
+  font-style: italic;
   text-transform: none;
 }
 
