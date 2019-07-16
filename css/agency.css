@@ -180,7 +180,7 @@ header.masthead {
   background-image: url("../img/header-bg.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: center center;
+  background-position: left center;
   background-size: cover;
 }
 
