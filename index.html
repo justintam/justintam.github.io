@@ -285,7 +285,7 @@
         var r = Math.floor(Math.random()*3)+1;
         if(arr.indexOf(r) === -1) arr.push(r);
       }
-      $each(arr, function(index, value) {
+      $.each(arr, function(index, value) {
 	count = index + 1;
         item += + '0' + i.toString();
 	image = '#blogImage' + count;
