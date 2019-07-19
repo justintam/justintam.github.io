@@ -286,14 +286,15 @@
         if(arr.indexOf(r) === -1) arr.push(r);
       }
       $.each(arr, function(index, value) {
-	count = index + 1;
+        count = index + 1;
         item += + '0' + value.toString();
-	image = '#blogImage' + count;
-	caption = '#blogCaption' + count;
-	modal = '#blogModal' + count;
-	thumb = 'img/blog/' + item + '-thumbnail.jpg';
-	title = "blog/captions/" + item + "-caption.html";
-	post = "blog/posts/" + item + "-post.html";
+	console.log(count + ' | ' + item);
+        image = '#blogImage' + count;
+        caption = '#blogCaption' + count;
+        modal = '#blogModal' + count;
+        thumb = 'img/blog/' + item + '-thumbnail.jpg';
+        title = "blog/captions/" + item + "-caption.html";
+        post = "blog/posts/" + item + "-post.html";
         $(image).load(thumb);
         $(caption).load(title);
         $(modal).load(post);
