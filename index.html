@@ -288,14 +288,13 @@
       $.each(arr, function(index, value) {
         count = (index + 1).toString();
         item = '0' + value.toString();
-	console.log(count + ' | ' + item);
         image = '#blogImage' + count;
         caption = '#blogCaption' + count;
         modal = '#blogModal' + count;
-        thumb = 'img/blog/' + item + '-thumbnail.jpg';
+        thumb = "img/blog/" + item + "-thumbnail.jpg";
         title = "blog/captions/" + item + "-caption.html";
         post = "blog/posts/" + item + "-post.html";
-        $(image).load(thumb);
+        $(image).attr('src', thumb);
         $(caption).load(title);
         $(modal).load(post);
       });
