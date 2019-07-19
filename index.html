@@ -112,11 +112,9 @@
                 <i class="far fa-eye fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/blog/01-thumbnail.jpg" alt="">
+            <img class="img-fluid" id="blogImage1" alt="">
           </a>
-          <div class="blog-caption">
-            <h4>The Bride</h4>
-            <p class="text-muted">There goes my heart</p>
+          <div class="blog-caption" id="blogCaption1">
           </div>
         </div>
         <div class="col-md-4 col-sm-6 blog-item">
@@ -126,11 +124,9 @@
                 <i class="far fa-eye fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/blog/02-thumbnail.jpg" alt="">
+            <img class="img-fluid" id="blogImage2" alt="">
           </a>
-          <div class="blog-caption">
-            <h4>Moonlight</h4>
-            <p class="text-muted">An Echo in Time</p>
+          <div class="blog-caption" id="blogCaption2">
           </div>
         </div>
         <div class="col-md-4 col-sm-6 blog-item">
@@ -140,11 +136,9 @@
                 <i class="far fa-eye fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/blog/03-thumbnail.jpg" alt="">
+            <img class="img-fluid" id="blogImage3" alt="">
           </a>
-          <div class="blog-caption">
-            <h4>Goodbyes</h4>
-            <p class="text-muted">Hello, Goodbye</p>
+          <div class="blog-caption" id="blogCaption3">
           </div>
         </div>
       </div>
@@ -278,9 +272,32 @@
 
   <script> 
     $(function(){
-      $("#blogModal1").load("blog/01-post.html");
-      $("#blogModal2").load("blog/02-post.html");
-      $("#blogModal3").load("blog/03-post.html");
+      var item = '';
+      var count = '';
+      var arr = [];
+      var modal = '';
+      var image = '';
+      var caption = '';
+      var thumb = '';
+      var title = '';
+      var post = '';
+      while(arr.length < 3  ){
+        var r = Math.floor(Math.random()*3)+1;
+        if(arr.indexOf(r) === -1) arr.push(r);
+      }
+      $each(arr, function(index, value) {
+	count = index + 1;
+        item += + '0' + i.toString();
+	image = '#blogImage' + count;
+	caption = '#blogCaption' + count;
+	modal = '#blogModal' + count;
+	thumb = 'img/blog/' + item + '-thumbnail.jpg';
+	title = "blog/captions/" + item + "-caption.html";
+	post = "blog/posts/" + item + "-post.html";
+        $(image).load(thumb);
+        $(caption).load(title);
+        $(modal).load(post);
+      });
     });
   </script> 
 </body>
