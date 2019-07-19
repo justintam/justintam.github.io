@@ -272,8 +272,8 @@
 
   <script> 
     $(function(){
-      var item = '';
       var count = '';
+      var item = '';
       var arr = [];
       var modal = '';
       var image = '';
@@ -286,7 +286,7 @@
         if(arr.indexOf(r) === -1) arr.push(r);
       }
       $.each(arr, function(index, value) {
-        count = index + 1;
+        count = (index + 1).toString();
         item += + '0' + value.toString();
 	console.log(count + ' | ' + item);
         image = '#blogImage' + count;
