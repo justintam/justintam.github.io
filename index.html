@@ -93,7 +93,6 @@
   <script> 
     $(function(){
       loadSections();
-      loadBlog();
     });
     
     function loadSections() {
@@ -102,6 +101,7 @@
       $('#blog').load("section/blog.html");
       $('#about').load("section/about.html");
       $('footer').load("section/footer.html");
+      loadBlog();
     }
     
     function loadBlog() {
