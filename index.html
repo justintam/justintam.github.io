@@ -92,9 +92,8 @@
 
   <script> 
     $(function(){
-      $.when(loadSections();).done(function() {
-        loadBlog();
-      });
+      loadSections();
+      loadBlog();
     });
     
     function loadSections() {
