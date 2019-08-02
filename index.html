@@ -92,18 +92,13 @@
 
   <script> 
     $(function(){
-      loadSections();
-    });
-    
-    function loadSections() {
       $('header').load("section/header.html");
       $('#skills').load("section/skills.html");
-      $('#blog').load("section/blog.html", function() {
-        loadBlog();
-      });
+      // Load the blog elements before executing the loadBlog function
+      $('#blog').load("section/blog.html", function() { loadBlog(); });
       $('#about').load("section/about.html");
       $('footer').load("section/footer.html");
-    }
+    });
     
     function loadBlog() {
       var count = '';
