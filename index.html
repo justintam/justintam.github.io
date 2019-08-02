@@ -97,6 +97,10 @@
       $('#blog').load("section/blog.html");
       $('#about').load("section/about.html");
       $('footer').load("section/footer.html");
+      loadBlogs();
+    });
+    
+    function loadBlogs() {
       var count = '';
       var item = '';
       var arr = [];
@@ -123,7 +127,7 @@
         $(caption).load(title);
         $(modal).load(post);
       });
-    });
+    }
   </script> 
 </body>
 
