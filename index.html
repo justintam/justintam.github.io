@@ -92,15 +92,19 @@
 
   <script> 
     $(function(){
+      loadSections();
+    });
+    
+    function loadSections() {
       $('header').load("section/header.html");
       $('#skills').load("section/skills.html");
       $('#blog').load("section/blog.html");
       $('#about').load("section/about.html");
       $('footer').load("section/footer.html");
-      loadBlogs();
-    });
+      loadBlog();
+    }
     
-    function loadBlogs() {
+    function loadBlog() {
       var count = '';
       var item = '';
       var arr = [];
