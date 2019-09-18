@@ -148,9 +148,9 @@
             $(modal).load(post);
           }
           else {
-            $(image).attr('src', '');
-            $(caption).load('');
-            $(modal).load('');
+            $(image).removeAttr('src');
+            $(caption).empty();
+            $(modal).empty();
           }
         });
       }
