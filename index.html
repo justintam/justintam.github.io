@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <title>Justin Tam</title>
@@ -134,7 +134,7 @@
       }
       // Check if there are newer posts
       if (blogs + limit < total) {
-        $('#newPosts').data('post',blogs);
+        $('.blog-paging').data('new',blogs);
         $('#newPosts').show();
       }
       else {
@@ -142,7 +142,7 @@
       }
       // Check if there are older posts
       if (blogs > 0) {
-        $('#oldPosts').data('post',blogs);
+        $('.blog-paging').data('old',blogs);
         $('#oldPosts').show();
       }
       else {
@@ -151,12 +151,12 @@
     }
     
     $('#newPosts').on('click', function() {
-      var blogs = $(this).data('post');
+      var blogs = $('.blog-paging').data('new');
       loadBlog(blogs, 1);
     });
     
     $('#oldPosts').on('click', function() {
-      var blogs = $(this).data('post');
+      var blogs = $('.blog-paging').data('old');
       loadBlog(blogs, -1);
     });
   </script> 
