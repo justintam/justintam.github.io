@@ -146,13 +146,13 @@
             $(image).attr('src', thumb);
             $(caption).load(title);
             $(modal).load(post);
-            $(modal).parent().show();
+            $(caption).parent().show();
           }
           else {
             $(image).removeAttr('src');
             $(caption).empty();
             $(modal).empty();
-            $(modal).parent().hide();
+            $(caption).parent().hide();
           }
         });
       }
