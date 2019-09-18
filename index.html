@@ -99,17 +99,13 @@
       $('#about').load("section/about.html");
       $('footer').load("section/footer.html");
       
-      
-        console.log('start');
       $('#blog').on('click', '#newPosts', function() {
-        console.log('testing');
-        var blogs = $('.blog-paging').data('new');
+        var blogs = $('.blog-paging').attr('new');
         loadBlog(blogs, 1);
       });
 
       $('#blog').on('click', '#oldPosts', function() {
-        console.log('testing');
-        var blogs = $('.blog-paging').data('new');
+        var blogs = $('.blog-paging').attr('new');
         loadBlog(blogs, -1);
       });
     });
@@ -148,7 +144,7 @@
       }
       // Check if there are newer posts
       if (blogs + limit < total) {
-        $('.blog-paging').attr('data-new',blogs);
+        $('.blog-paging').attr('new',blogs);
         $('#newPosts').show();
       }
       else {
@@ -156,7 +152,7 @@
       }
       // Check if there are older posts
       if (blogs > 0) {
-        $('.blog-paging').attr('data-old',blogs);
+        $('.blog-paging').attr('old',blogs);
         $('#oldPosts').show();
       }
       else {
