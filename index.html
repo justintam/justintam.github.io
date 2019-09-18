@@ -125,14 +125,15 @@
       if (blogs > 0) {
         while(arr.length < limit){
           if (blogs > 0 && blogs <= total) {
-            if (arr.indexOf(blogs) === -1)
-            if (arrow < 0) {
-              arr.push(blogs);
-              blogs--;
-            }
-            else if (blogs < total) {
-              arr.unshift(blogs);
-              blogs++;
+            if (arr.indexOf(blogs) === -1) {
+              if (arrow < 0) {
+                arr.push(blogs);
+                blogs--;
+              }
+              else if (blogs < total) {
+                arr.unshift(blogs);
+                blogs++;
+              }
             }
           }
           else {
