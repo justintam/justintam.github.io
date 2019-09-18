@@ -101,16 +101,10 @@
       
         console.log('starting...');
       $('#newPosts').on('click', function() {
-        var blogs = $('.blog-paging').data('new');
-        loadBlog(blogs, 1);
-        console.log(blogs);
       });
 
       $('#oldPosts').on('click', function() {
         console.log('test');
-        var blogs = $('.blog-paging').data('old');
-        loadBlog(blogs, -1);
-        console.log(blogs);
       });
     });
     
@@ -148,7 +142,7 @@
       }
       // Check if there are newer posts
       if (blogs + limit < total) {
-        $('.blog-paging').data('new',blogs);
+        $('.blog-paging').attr('data-new',blogs);
         $('#newPosts').show();
       }
       else {
@@ -156,7 +150,7 @@
       }
       // Check if there are older posts
       if (blogs > 0) {
-        $('.blog-paging').data('old',blogs);
+        $('.blog-paging').attr('data-old',blogs);
         $('#oldPosts').show();
       }
       else {
