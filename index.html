@@ -131,8 +131,12 @@
           $(modal).load(post);
         });
       }
+      $('#newPosts').hide();
       if (blogs > 0) {
         $('#oldPosts').show();
+      }
+      else {
+        $('#oldPosts').hide();
       }
     }
   </script> 
