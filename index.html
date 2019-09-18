@@ -144,14 +144,10 @@
             title = "blog/captions/" + item + "-caption.html";
             post = "blog/posts/" + item + "-post.html";
             $(image).attr('src', thumb);
-            $(caption).load(title);
-            $(modal).load(post);
             $(caption).parent().show();
           }
           else {
             $(image).removeAttr('src');
-            $(caption).empty();
-            $(modal).empty();
             $(caption).parent().hide();
           }
         });
