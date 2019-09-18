@@ -100,8 +100,8 @@
       $('footer').load("section/footer.html");
     });
     
-    function loadBlog() {
-      var blogs = 5; // Number of blogs published
+    function loadBlog(blogs = 5, arrow = -1) {
+      var total = 5; // Number of blogs published
       var limit = 3; // Number of blogs to display
       var count = '';
       var item = '';
@@ -114,8 +114,9 @@
       var post = '';
       if (blogs > 0) {
         while(arr.length < limit){
-          if(arr.indexOf(blogs) === -1) arr.push(blogs);
-          blogs--;
+          if (arr.indexOf(blogs) === -1) arr.push(blogs);
+          if (arrow < 0) blogs--;
+          else blogs++;
         }
         $.each(arr, function(index, value) {
           count = (index + 1).toString();
@@ -131,14 +132,33 @@
           $(modal).load(post);
         });
       }
-      $('#newPosts').hide();
+      // Check if there are newer posts
+      if (blogs + limit < total) {
+        $('#newPosts').data('post',blogs);
+        $('#newPosts').show();
+      }
+      else {
+        $('#newPosts').hide();
+      }
+      // Check if there are older posts
       if (blogs > 0) {
+        $('#oldPosts').data('post',blogs);
         $('#oldPosts').show();
       }
       else {
         $('#oldPosts').hide();
       }
     }
+    
+    $('#newPosts').on('click', function() {
+      var blogs = $(this).data('post');
+      loadBlog(blogs, 1);
+    });
+    
+    $('#oldPosts').on('click', function() {
+      var blogs = $(this).data('post');
+      loadBlog(blogs, -1);
+    });
   </script> 
 </body>
 
