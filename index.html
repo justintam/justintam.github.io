@@ -146,17 +146,24 @@
             $(image).attr('src', thumb);
             $(caption).load(title);
             $(modal).load(post);
+            $(modal).parent().show();
           }
           else {
             $(image).removeAttr('src');
             $(caption).empty();
             $(modal).empty();
+            $(modal).parent().hide();
           }
         });
       }
       // Check if there are newer posts
       if (blogs + limit < total) {
-        $('.blog-paging').attr('new',blogs + limit);
+        if (arrow > 0) {
+          $('.blog-paging').attr('new',blogs);
+        }
+        else {
+          $('.blog-paging').attr('new',blogs + limit);
+        }
         $('#newPosts').show();
       }
       else {
@@ -164,7 +171,12 @@
       }
       // Check if there are older posts
       if (blogs > 0) {
-        $('.blog-paging').attr('old',blogs);
+        if (arrow < 0) {
+          $('.blog-paging').attr('old',blogs);
+        }
+        else {
+          $('.blog-paging').attr('old',blogs - limit);
+        }
         $('#oldPosts').show();
       }
       else {
