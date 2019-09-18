@@ -99,6 +99,7 @@
       $('#about').load("section/about.html");
       $('footer').load("section/footer.html");
       
+        console.log('starting...');
       $('#newPosts').on('click', function() {
         var blogs = $('.blog-paging').data('new');
         loadBlog(blogs, 1);
@@ -106,6 +107,7 @@
       });
 
       $('#oldPosts').on('click', function() {
+        console.log('test');
         var blogs = $('.blog-paging').data('old');
         loadBlog(blogs, -1);
         console.log(blogs);
