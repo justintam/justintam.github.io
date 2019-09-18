@@ -124,27 +124,39 @@
       var post = '';
       if (blogs > 0) {
         while(arr.length < limit){
-          if (arr.indexOf(blogs) === -1) arr.push(blogs);
-          if (arrow < 0) blogs--;
-          else blogs++;
+          if (blogs > 0 && blogs < total) {
+            if (arr.indexOf(blogs) === -1) arr.push(blogs);
+            if (arrow < 0) blogs--;
+            else blogs++;
+          }
+          else {
+            arr.push(-1);
+          }
         }
         $.each(arr, function(index, value) {
           count = (index + 1).toString();
-          item = '0' + value.toString();
           image = '#blogImage' + count;
           caption = '#blogCaption' + count;
           modal = '#blogModal' + count;
-          thumb = "img/blog/" + item + "-thumbnail.jpg";
-          title = "blog/captions/" + item + "-caption.html";
-          post = "blog/posts/" + item + "-post.html";
-          $(image).attr('src', thumb);
-          $(caption).load(title);
-          $(modal).load(post);
+          if (value > 0) {
+            item = '0' + value.toString();
+            thumb = "img/blog/" + item + "-thumbnail.jpg";
+            title = "blog/captions/" + item + "-caption.html";
+            post = "blog/posts/" + item + "-post.html";
+            $(image).attr('src', thumb);
+            $(caption).load(title);
+            $(modal).load(post);
+          }
+          else {
+            $(image).attr('src', '');
+            $(caption).load('');
+            $(modal).load('');
+          }
         });
       }
       // Check if there are newer posts
       if (blogs + limit < total) {
-        $('.blog-paging').attr('new',blogs);
+        $('.blog-paging').attr('new',blogs + limit);
         $('#newPosts').show();
       }
       else {
