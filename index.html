@@ -127,7 +127,7 @@
           if (blogs > 0 && blogs <= total) {
             if (arr.indexOf(blogs) === -1) arr.push(blogs);
             if (arrow < 0) blogs--;
-            else blogs++;
+            else if (blogs < total) blogs++;
           }
           else {
             arr.push(-1);
@@ -144,6 +144,8 @@
             title = "blog/captions/" + item + "-caption.html";
             post = "blog/posts/" + item + "-post.html";
             $(image).attr('src', thumb);
+            $(caption).load(title);
+            $(modal).load(post);
             $(caption).parent().show();
           }
           else {
