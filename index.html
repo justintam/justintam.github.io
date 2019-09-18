@@ -98,6 +98,18 @@
       $('#blog').load("section/blog.html", function() { loadBlog(); });
       $('#about').load("section/about.html");
       $('footer').load("section/footer.html");
+      
+      $('#newPosts').on('click', function() {
+        var blogs = $('.blog-paging').data('new');
+        loadBlog(blogs, 1);
+        console.log(blogs);
+      });
+
+      $('#oldPosts').on('click', function() {
+        var blogs = $('.blog-paging').data('old');
+        loadBlog(blogs, -1);
+        console.log(blogs);
+      });
     });
     
     function loadBlog(blogs = 5, arrow = -1) {
@@ -149,18 +161,6 @@
         $('#oldPosts').hide();
       }
     }
-    
-    $('#newPosts').on('click', function() {
-      var blogs = $('.blog-paging').data('new');
-      loadBlog(blogs, 1);
-      console.log(blogs);
-    });
-    
-    $('#oldPosts').on('click', function() {
-      var blogs = $('.blog-paging').data('old');
-      loadBlog(blogs, -1);
-      console.log(blogs);
-    });
   </script> 
 </body>
 
