@@ -99,12 +99,16 @@
       $('#about').load("section/about.html");
       $('footer').load("section/footer.html");
       
+      
+        console.log('start');
       $('#blog').on('click', '#newPosts', function() {
+        console.log('testing');
         var blogs = $('.blog-paging').data('new');
         loadBlog(blogs, 1);
       });
 
       $('#blog').on('click', '#oldPosts', function() {
+        console.log('testing');
         var blogs = $('.blog-paging').data('new');
         loadBlog(blogs, -1);
       });
