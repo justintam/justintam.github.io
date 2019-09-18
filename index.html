@@ -130,14 +130,19 @@
                 arr.push(blogs);
                 blogs--;
               }
-              else if (blogs < total) {
+              else {
                 arr.unshift(blogs);
-                blogs++;
+                if (blogs < total) blogs++;
               }
             }
           }
           else {
-            arr.push(-1);
+              if (arrow < 0) {
+                arr.push(-1);
+              }
+              else {
+                arr.unshift(-1);
+              }
           }
         }
         $.each(arr, function(index, value) {
