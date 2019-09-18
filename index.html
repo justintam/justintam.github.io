@@ -99,12 +99,14 @@
       $('#about').load("section/about.html");
       $('footer').load("section/footer.html");
       
-        console.log('starting...');
-      $('#newPosts').on('click', function() {
+      $('#blog').on('click', '#newPosts', function() {
+        var blogs = $('.blog-paging').data('new');
+        loadBlog(blogs, 1);
       });
 
-      $('#oldPosts').on('click', function() {
-        console.log('test');
+      $('#blog').on('click', '#oldPosts', function() {
+        var blogs = $('.blog-paging').data('new');
+        loadBlog(blogs, -1);
       });
     });
     
