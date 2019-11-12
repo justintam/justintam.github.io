@@ -5,7 +5,8 @@ $(document).ready(() => {
 	/******************/
 
 	// set visitor name
-	var $userName = "";
+	var $userName = "Test";
+	var $signedOn = 0;
 
 	// start chatbox
 	$("#form-start").on("submit", (event) => {
@@ -15,6 +16,13 @@ $(document).ready(() => {
 		setTimeout(() => {
 			$("#start-chat").html("Continue chat")
 		}, 300);
+		
+		// Say howdy first
+		if ($signedOn == 0) {
+			postBotReply(`Howdy ${$userName}!`);
+			postBotReply(`What's up?`);
+			$signedOn = 1;
+		}
 	});
 
 	/*****************/
@@ -60,11 +68,12 @@ $(document).ready(() => {
 		var reply = [`Sorry, I don't understand you.`, `Please try again`];
 
 		// Generate some different replies
-		if (/^hi$|^hell?o|^howdy|^hoi|^hola|^hey|^oi|^ola/.test(message)) reply = [`Hi ${$userName}.`, `What can I do for you?`];
-		else if (/test/.test(message)) reply = [`Ok`, `Feel free to test as much as you want.`];
+		if (/^hi$|^hell?o|^howdy|^hoi|^hola|^hey|^oi|^ola/.test(message)) reply = [`Yes, hi ${$userName}.`, `What can I do for you?`];
+		else if (/test/.test(message)) reply = [`Ok.`, `Feel free to test as much as you want.`];
 		else if (/help|sos|emergency|support/.test(message)) reply = [`I am here to help.`, `What seems to be the problem?`];
 		else if (/class\=\"fa/.test(message)) reply = [`I see you've found the smileys.`, `Cool! <span class="far fa-grin-beam fa-2x"></span>`, `Did you need something?`];
-		else if (/how|what|why/.test(message)) reply = userMessage + " what?";
+		else if (/wtf|huh|how|what|why/.test(message)) reply = userMessage + " what?";
+		else if (/ha|haha+|lol+|/.test(message)) reply = [`LOL! <span class="far fa-grin-squint-tears fa-2x"></span>`, `So funny.`];
 		else if (/^huh+|boring|lame|wtf|pff/.test(message)) reply = [`<span class="far fa-dizzy fa-2x"></span>`, `I'm sorry you feel that way.`, `How can I make it better?`];
 		else if (/bye|ciao|adios|adieu|salu/.test(message)) reply = [`Ok, bye! :)`];
 
@@ -127,6 +136,7 @@ $(document).ready(() => {
 		$("#landing").show();
 		$("#username").val("");
 		$("#start-chat").html("Start chat");
+		$signedOn = 0;
 	});
 
 	/*********************/
