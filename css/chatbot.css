@@ -99,30 +99,11 @@ button,
 
 #wrapper {
   margin: 50px auto;
+  width: 98%;
+  height: 500px;
   position: relative;
   overflow: hidden;
   border: 5px solid;
-}
-
-@media (max-width: 600px) {
-  #wrapper {
-    width: 250px;
-	height: 500px;
-  }
-}
-
-@media (min-width: 600px) {
-  #wrapper {
-    width: 340px;
-    height: 680px;
-  }
-}
-
-@media (min-width: 768px) {
-  #wrapper {
-    width: 360px;
-    height: 720px;
-  }
 }
 
 @media (min-width: 768px) {
