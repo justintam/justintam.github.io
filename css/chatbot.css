@@ -105,9 +105,23 @@ button,
   border: 5px solid;
 }
 
-@media only screen and (max-width: 767px) {
+@media (max-width: 600px) {
   #wrapper {
     width: 100%;
+  }
+}
+
+@media (min-width: 600px) {
+  #wrapper {
+    width: 340px;
+    height: 680px;
+  }
+}
+
+@media (min-width: 768px) {
+  #wrapper {
+    width: 360px;
+    height: 720px;
   }
 }
 
