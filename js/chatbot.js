@@ -4,11 +4,11 @@ $(document).ready(() => {
 	/*** START CHAT ***/
 	/******************/
 
-	// set visitor name
+	// Set user name
 	var $userName = "Test";
 	var $signedOn = 0;
 
-	// start chatbox
+	// Start chatbox
 	$("#form-start").on("submit", (event) => {
 		event.preventDefault();
 		$userName = $("#username").val();
@@ -16,7 +16,6 @@ $(document).ready(() => {
 		setTimeout(() => {
 			$("#start-chat").html("Continue chat")
 		}, 300);
-		
 		// Say howdy first
 		if ($signedOn == 0) {
 			postBotReply(`Howdy ${$userName}!`);
@@ -73,8 +72,8 @@ $(document).ready(() => {
 		else if (/help|sos|emergency|support/.test(message)) reply = [`I am here to help.`, `What seems to be the problem?`];
 		else if (/class\=\"fa/.test(message)) reply = [`I see you've found the smileys.`, `Cool! <span class="far fa-grin-beam fa-2x"></span>`, `Did you need something?`];
 		else if (/wtf|huh|how|what|why/.test(message)) reply = userMessage + " what?";
-		else if (/ha|haha+|lol+|/.test(message)) reply = [`LOL! <span class="far fa-grin-squint-tears fa-2x"></span>`, `So funny.`];
-		else if (/^huh+|boring|lame|wtf|pff/.test(message)) reply = [`<span class="far fa-dizzy fa-2x"></span>`, `I'm sorry you feel that way.`, `How can I make it better?`];
+		else if (/ha|haha+|jaja+|lol+|/.test(message)) reply = [`LOL! <span class="far fa-grin-squint-tears fa-2x"></span>`, `So funny.`];
+		else if (/huh+|boring|lame|wtf|pff/.test(message)) reply = [`<span class="far fa-dizzy fa-2x"></span>`, `I'm sorry you feel that way.`, `How can I make it better?`];
 		else if (/bye|ciao|adios|adieu|salu/.test(message)) reply = [`Ok, bye! :)`];
 
 		return reply;
