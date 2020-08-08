@@ -90,14 +90,14 @@
   <!-- Custom scripts for this template -->
   <script src="js/agency.min.js"></script>
 
-  <script> 
+  <script>
     $(function(){
-      $('header').load("section/header.html");
-      $('#stats').load("section/stats.html");
+      $('header').load("/phoenix/header.html");
+      $('#stats').load("/phoenix/stats.html");
       // Load the blog elements before executing the loadBlog function
-      $('#blog').load("section/blog.html", function() { loadBlog(); });
-      $('#about').load("section/about.html");
-      $('footer').load("section/footer.html");
+      $('#blog').load("/phoenix/blog.html", function() { loadBlog(); });
+      $('#about').load("/phoenix/about.html");
+      $('footer').load("/phoenix/footer.html");
       
       $('#blog').on('click', '#newPosts', function() {
         var blogs = $('.blog-paging').attr('new');
