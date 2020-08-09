@@ -95,22 +95,12 @@
       $('header').load("/phoenix/header.html");
       $('#stats').load("/phoenix/stats.html");
       // Load the blog elements before executing the loadBlog function
-      $('#blog').load("/phoenix/blog.html", function() { loadBlog(1, 1); });
+      $('#blog').load("/phoenix/blog.html", function() { loadBlog(); });
       $('#about').load("/phoenix/about.html");
       $('footer').load("/phoenix/footer.html");
-      
-      $('#blog').on('click', '#newPosts', function() {
-        var blogs = $('.blog-paging').attr('new');
-        loadBlog(blogs, 1);
-      });
-
-      $('#blog').on('click', '#oldPosts', function() {
-        var blogs = $('.blog-paging').attr('old');
-        loadBlog(blogs, -1);
-      });
     });
     
-    function loadBlog(blogs = -1, arrow = -1) {
+    function loadBlog(blogs = 1, arrow = 1) {
       var total = 3; // Number of blogs published
       var limit = 3; // Number of blogs to display
       var count = '';
@@ -122,23 +112,11 @@
       var thumb = '';
       var title = '';
       var post = '';
-      if (blogs < 0) blogs = total;
       while(arr.length < limit){
-        if (blogs > 0 && blogs <= total) {
-          if (arr.indexOf(blogs) === -1) {
-            if (arrow < 0) {
-              arr.push(blogs);
-              if (blogs > 1) blogs--;
-            }
-            else {
-              arr.push(blogs);
-              if (blogs < total) blogs++;
-            }
-          }
-        }
-        else {
-          arr.push(-1);
-        }
+		if (arr.indexOf(blogs) === -1) {
+		  arr.push(blogs);
+		  if (blogs < total) blogs++;
+		}
       }
       $.each(arr, function(index, value) {
         count = (index + 1).toString();
@@ -160,33 +138,6 @@
           $(caption).parent().hide();
         }
       });
-      // Check if there are newer posts
-      if (blogs + limit < total) {
-        if (arrow > 0) {
-          $('.blog-paging').attr('new',blogs);
-        }
-        else {
-          $('.blog-paging').attr('new',blogs + limit);
-        }
-        $('#newPosts').show();
-      }
-      else {
-        $('#newPosts').hide();
-      }
-      // Check if there are older posts
-      if (blogs > total) {
-        if (arrow < 0) {
-          $('.blog-paging').attr('old',blogs);
-        }
-        else {
-          $('.blog-paging').attr('old',blogs - limit);
-        }
-        $('#oldPosts').show();
-      }
-      else {
-        $('#oldPosts').hide();
-      }
-    }
   </script> 
 </body>
 
