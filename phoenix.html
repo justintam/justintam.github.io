@@ -122,7 +122,7 @@
       var thumb = '';
       var title = '';
       var post = '';
-      if (blogs < 0) blogs = total;
+      if (blogs < 0) blogs = 0;
       while(arr.length < limit){
         if (blogs > 0 && blogs <= total) {
           if (arr.indexOf(blogs) === -1) {
