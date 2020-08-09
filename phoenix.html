@@ -95,7 +95,7 @@
       $('header').load("/phoenix/header.html");
       $('#stats').load("/phoenix/stats.html");
       // Load the blog elements before executing the loadBlog function
-      $('#blog').load("/phoenix/blog.html", function() { loadBlog(); });
+      $('#blog').load("/phoenix/blog.html", function() { loadBlog(1, 1); });
       $('#about').load("/phoenix/about.html");
       $('footer').load("/phoenix/footer.html");
       
@@ -110,7 +110,7 @@
       });
     });
     
-    function loadBlog(blogs = -1, arrow = 1) {
+    function loadBlog(blogs = -1, arrow = -1) {
       var total = 3; // Number of blogs published
       var limit = 3; // Number of blogs to display
       var count = '';
