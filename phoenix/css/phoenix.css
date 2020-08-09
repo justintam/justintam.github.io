@@ -109,7 +109,7 @@ img::-moz-selection {
 }
 
 #mainNav {
-  background-color: #212529;
+  background-color: #	;
 }
 
 #mainNav .navbar-toggler {
@@ -178,11 +178,11 @@ header.masthead {
   text-align: center;
   color: #daa520;
   min-height: 100vh;
-  background-image: url("../img/header-bg.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: left center;
   background-size: cover;
+  background-color: 000099;
 }
 
 header.masthead .intro-text {
