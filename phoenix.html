@@ -17,7 +17,7 @@
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template -->
-  <link href="css/agency.min.css" rel="stylesheet">
+  <link href="phoenix/css/phoenix.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -88,7 +88,7 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="js/agency.min.js"></script>
+  <script src="phoenix/js/phoenix.js"></script>
 
   <script>
     $(function(){
@@ -111,7 +111,7 @@
     });
     
     function loadBlog(blogs = -1, arrow = -1) {
-      var total = 6; // Number of blogs published
+      var total = 3; // Number of blogs published
       var limit = 3; // Number of blogs to display
       var count = '';
       var item = '';
@@ -147,9 +147,9 @@
         modal = '#blogModal' + count;
         if (value > 0) {
           item = '0' + value.toString();
-          thumb = "img/blog/" + item + "-thumbnail.jpg";
-          title = "blog/captions/" + item + "-caption.html";
-          post = "blog/posts/" + item + "-post.html";
+          thumb = "phoenix/img/blog/" + item + "-thumbnail.jpg";
+          title = "phoenix/blog/captions/" + item + "-caption.html";
+          post = "phoenix/blog/posts/" + item + "-post.html";
           $(image).attr('src', thumb);
           $(caption).load(title);
           $(modal).load(post);
