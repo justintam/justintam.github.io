@@ -110,7 +110,7 @@
       });
     });
     
-    function loadBlog(blogs = -1, arrow = -1) {
+    function loadBlog(blogs = -1, arrow = 1) {
       var total = 3; // Number of blogs published
       var limit = 3; // Number of blogs to display
       var count = '';
@@ -122,7 +122,7 @@
       var thumb = '';
       var title = '';
       var post = '';
-      if (blogs < 0) blogs = 0;
+      if (blogs < 0) blogs = total;
       while(arr.length < limit){
         if (blogs > 0 && blogs <= total) {
           if (arr.indexOf(blogs) === -1) {
