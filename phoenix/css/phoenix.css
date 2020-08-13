@@ -93,8 +93,8 @@ img::-moz-selection {
 }
 
 .btn-primary {
-  background-color: #cc5500;
-  border-color: #cc5500;
+  background-color: #212529;
+  border-color: #daa520;
 }
 
 .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
@@ -109,7 +109,7 @@ img::-moz-selection {
 }
 
 #mainNav {
-  background-color: #	;
+  background-color: #212529;
 }
 
 #mainNav .navbar-toggler {
@@ -178,11 +178,12 @@ header.masthead {
   text-align: center;
   color: #daa520;
   min-height: 100vh;
+  background: rgb(2,0,36);
+  background: linear-gradient(245deg, rgba(2,0,36,1) 0%, rgba(6,5,80,1) 75%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: left center;
   background-size: cover;
-  background-color: #100150;
 }
 
 header.masthead .intro-text {
@@ -207,7 +208,7 @@ header.masthead .intro-text .intro-heading {
 }
 
 header.masthead .intro-text .intro-button {
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 @media (min-width: 768px) {
@@ -454,13 +455,13 @@ header.masthead .intro-text .intro-button {
   color: white;
   border: 7px solid #e9ecef;
   border-radius: 100%;
-  background-color: #cc5500;
+  background-color: #daa520;
 }
 
 .timeline > li .timeline-image h4 {
   font-size: 10px;
   line-height: 14px;
-  margin-top: 12px;
+  margin-top: 50%;
 }
 
 .timeline > li.timeline-inverted > .timeline-panel {
