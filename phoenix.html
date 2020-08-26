@@ -36,7 +36,7 @@
             <a class="nav-link js-scroll-trigger" href="#stats">Why Us?</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#blog">Blog</a>
+            <a class="nav-link js-scroll-trigger" href="#news">News</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#about">About</a>
@@ -54,8 +54,8 @@
   <section class="page-section" id="stats">
   </section>
 
-  <!-- Blog Grid -->
-  <section class="bg-light page-section" id="blog">
+  <!-- News Grid -->
+  <section class="bg-light page-section" id="news">
   </section>
 
   <!-- About -->
@@ -95,7 +95,7 @@
       $('header').load("/phoenix/header.html");
       $('#stats').load("/phoenix/stats.html");
       // Load the blog elements before executing the loadBlog function
-      $('#blog').load("/phoenix/blog.html", function() { loadBlog(); });
+      $('#news').load("/phoenix/news.html", function() { loadBlog(); });
       $('#about').load("/phoenix/about.html");
       $('footer').load("/phoenix/footer.html");
     });
