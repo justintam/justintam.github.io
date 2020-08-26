@@ -237,12 +237,12 @@ header.masthead .intro-text .intro-button {
   text-transform: none;
 }
 
-#blog .blog-item {
+#news .blog-item {
   right: 0;
   margin: 0 0 15px;
 }
 
-#blog .blog-item .blog-link {
+#news .blog-item .blog-link {
   position: relative;
   display: block;
   max-width: 400px;
@@ -250,7 +250,7 @@ header.masthead .intro-text .intro-button {
   cursor: pointer;
 }
 
-#blog .blog-item .blog-link .blog-hover {
+#news .blog-item .blog-link .blog-hover {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -260,11 +260,11 @@ header.masthead .intro-text .intro-button {
   background: rgba(254, 209, 54, 0.9);
 }
 
-#blog .blog-item .blog-link .blog-hover:hover {
+#news .blog-item .blog-link .blog-hover:hover {
   opacity: 1;
 }
 
-#blog .blog-item .blog-link .blog-hover .blog-hover-content {
+#news .blog-item .blog-link .blog-hover .blog-hover-content {
   font-size: 20px;
   position: absolute;
   top: 50%;
@@ -275,16 +275,16 @@ header.masthead .intro-text .intro-button {
   color: white;
 }
 
-#blog .blog-item .blog-link .blog-hover .blog-hover-content i {
+#news .blog-item .blog-link .blog-hover .blog-hover-content i {
   margin-top: -12px;
 }
 
-#blog .blog-item .blog-link .blog-hover .blog-hover-content h3,
-#blog .blog-item .blog-link .blog-hover .blog-hover-content h4 {
+#news .blog-item .blog-link .blog-hover .blog-hover-content h3,
+#news .blog-item .blog-link .blog-hover .blog-hover-content h4 {
   margin: 0;
 }
 
-#blog .blog-item .blog-caption {
+#news .blog-item .blog-caption {
   max-width: 400px;
   margin: 0 auto;
   padding: 25px;
@@ -292,24 +292,24 @@ header.masthead .intro-text .intro-button {
   background-color: #fff;
 }
 
-#blog .blog-item .blog-caption h4 {
+#news .blog-item .blog-caption h4 {
   margin: 0;
   text-transform: none;
 }
 
-#blog .blog-item .blog-caption p {
+#news .blog-item .blog-caption p {
   font-size: 16px;
   font-style: italic;
   margin: 0;
   font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-#blog * {
+#news * {
   z-index: 2;
 }
 
 @media (min-width: 767px) {
-  #blog .blog-item {
+  #news .blog-item {
     margin: 0 0 30px;
   }
 }
