@@ -125,7 +125,7 @@ img::-moz-selection {
 
 #mainNav .navbar-brand {
   font-weight: bold;
-  color: #daa520;
+  color: #ffffff;
   font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
@@ -176,10 +176,9 @@ img::-moz-selection {
 
 header.masthead {
   text-align: center;
-  color: #daa520;
   min-height: 100vh;
-  background: rgb(2,0,36);
-  background: linear-gradient(245deg, rgba(2,0,36,1) 0%, rgba(6,5,80,1) 75%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
+  background: rgb(30,40,50);
+  background: linear-gradient(245deg, rgba(30,40,50,1) 0%, rgba(60,75,90,1) 75%, rgba(90,120,130,1) 100%, rgba(100,150,220,1) 100%);
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: left center;
@@ -187,11 +186,13 @@ header.masthead {
 }
 
 header.masthead .intro-text {
+  color: #ffffff;
   padding-top: 150px;
   padding-bottom: 100px;
 }
 
 header.masthead .intro-text .intro-lead-in {
+  color: #daa520;
   font-size: 22px;
   font-style: italic;
   line-height: 22px;
