@@ -154,12 +154,12 @@
       var email = $('#txtEmail').val();
       if (name == '' || phone != '' || email == '')
       {
-        $('#lblError').val('Please use a valid name and email.');
+        $('#divError').show();
 	return;
       }
       else
       {
-        $('#lblError').val('');
+        $('#divError').hide();
       }
     }
   </script>
