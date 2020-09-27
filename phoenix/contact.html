@@ -6,52 +6,50 @@
   </div>
   <div class="row">
     <div class="col-lg-12">
-		<form id="contactForm" method="post">
-		
-			<div class="anchor" id="details"></div>
-			<fieldset>
-				<legend>Personal Details</legend>
-				
-				<div class="form-group position-relative"> <!-- Full Name -->
-					<i class="fa fa-user"></i>
-					<label for="txtName" class="control-label">Full Name</label>
-					<input type="text" class="form-control" id="txtName" placeholder="Ex: John Smith" required>
-					<input type="text" class="form-control" id="txtPhone" placeholder="Ex: 888-888-8888" hidden>
-				</div>
-				
-				<div class="form-group position-relative"> <!-- Email -->
-					<i class="fa fa-home"></i>
-					<label for="txtEmail" class="control-label">Street Address</label>
-					<input type="text" class="form-control" id="txtEmail" placeholder="Ex: john.smith@abc.com" required>
-				</div>
-			</fieldset>
-			
-			<div class="form-group submit-button"> <!-- Submit Button -->
-				<button type="submit" class="btn btn-primary">Submit</button>
-				
-				<!-- Modal -->
-				<div id="submitModal" class="modal fade" role="dialog">
-				  <div class="modal-dialog">
-				
-					<!-- Modal content-->
-					<div class="modal-content">
-					  <div class="modal-header">
-						<h4 class="modal-title">Profile Saved!</h4>
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					  </div>
-					  <div class="modal-body">
-						<p>(This doesn't submit anything at this time)</p>
-					  </div>
-					  <div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-					  </div>
-					</div>
-				
-				  </div>
-				</div>
+	<form id="contactForm" method="post">
+	  <div class="anchor" id="details"></div>
+	  <fieldset>
+		<legend>Personal Details</legend>
+
+		<div class="form-group position-relative"> <!-- Full Name -->
+			<i class="fa fa-user"></i>
+			<label for="txtName" class="control-label">Full Name</label>
+			<input type="text" class="form-control" id="txtName" placeholder="Ex: John Smith" required>
+			<input type="text" class="form-control" id="txtPhone" placeholder="Ex: 888-888-8888" hidden>
+		</div>
+
+		<div class="form-group position-relative"> <!-- Email -->
+			<i class="fa fa-home"></i>
+			<label for="txtEmail" class="control-label">Email Address</label>
+			<input type="text" class="form-control" id="txtEmail" placeholder="Ex: john.smith@abc.com" required>
+		</div>
+	  </fieldset>
+
+	  <div class="form-group submit-button"> <!-- Submit Button -->
+		<button type="submit" class="btn btn-primary">Submit</button>
+
+		<!-- Modal -->
+		<div id="submitModal" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h4 class="modal-title">Profile Saved!</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+			  <div class="modal-body">
+				<p>(This doesn't submit anything at this time)</p>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+			  </div>
 			</div>
-		
-		</form>
+
+		  </div>
+		</div>
+	  </div>
+	</form>
     </div>
   </div>
 </div>
