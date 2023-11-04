@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row align-items-center">
     <div class="col-md-4">
-      <span class="copyright"></span>
+      <span class="copyright">Copyright &copy; Justin Tam 2014-</span>
     </div>
     <div class="col-md-4">
       <a href="https://www.linkedin.com/in/justintam/">
@@ -12,5 +12,5 @@
 </div>
 
 <script>
-  $('.copyright').text("Copyright &copy; Justin Tam 2014-" + new Date().getFullYear());
+  $('.copyright').text($('.copyright').text() + new Date().getFullYear());
 </script>
