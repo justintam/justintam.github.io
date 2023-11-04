@@ -101,6 +101,7 @@
       $('#blog').load("section/blog.html", function() { loadBlog(); });
       $('#about').load("section/about.html");
       $('footer').load("section/footer.html");
+      $('.copyright').text("Copyright &copy; Justin Tam 2014-" + new Date().getFullYear());
       
       $('#blog').on('click', '#newPosts', function() {
         var blogs = $('.blog-paging').attr('new');
