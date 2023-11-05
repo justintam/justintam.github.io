@@ -100,7 +100,7 @@
       // Load the blog elements before executing the loadBlog function
       $('#blog').load("section/blog.html", function() { loadBlog(); });
       $('#about').load("section/about.html");
-      $('footer').load("section/footer.html");
+      $('footer').load("section/footer.html", function() { $('.copyright').text($('.copyright').text() + new Date().getFullYear()); });
       
       $('#blog').on('click', '#newPosts', function() {
         var blogs = $('.blog-paging').attr('new');
@@ -126,12 +126,12 @@
       var title = '';
       var post = '';
       if (blogs < 0) blogs = total;
-      while(arr.length < limit){
+      while(arr.length < limit) {
         if (blogs > 0 && blogs <= total) {
           if (arr.indexOf(blogs) === -1) {
             if (arrow < 0) {
               arr.push(blogs);
-              if (blogs > 1) blogs--;
+              if (blogs >= 1) blogs--;
             }
             else {
               arr.unshift(blogs);
