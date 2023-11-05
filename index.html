@@ -169,7 +169,7 @@
           $('.blog-paging').attr('new',blogs);
         }
         else {
-          $('.blog-paging').attr('new',total - blogs);
+          $('.blog-paging').attr('new',total - (blogs + limit));
         }
         $('#newPosts').show();
       }
