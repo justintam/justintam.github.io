@@ -98,10 +98,98 @@
       $('header').load("section/header.html");
       $('#skills').load("section/skills.html");
       // Load the blog elements before executing the loadBlog function
-      $('#blog').load("section/blog.html");
+      $('#blog').load("section/blog.html", function() { loadBlog(); });
       $('#about').load("section/about.html");
       $('footer').load("section/footer.html");
+      
+      $('#blog').on('click', '#newPosts', function() {
+        var blogs = $('.blog-paging').attr('new');
+        loadBlog(blogs, 1);
+      });
+
+      $('#blog').on('click', '#oldPosts', function() {
+        var blogs = $('.blog-paging').attr('old');
+        loadBlog(blogs, -1);
+      });
     });
+    
+    function loadBlog(blogs = -1, arrow = -1) {
+      var total = 7; // Number of blogs published
+      var limit = 3; // Number of blogs to display
+      var count = '';
+      var item = '';
+      var arr = [];
+      var modal = '';
+      var image = '';
+      var caption = '';
+      var thumb = '';
+      var title = '';
+      var post = '';
+      if (blogs < 0) blogs = total;
+      while(arr.length < limit) {
+        if (blogs > 0 && blogs <= total) {
+          if (arr.indexOf(blogs) === -1) {
+            if (arrow < 0) {
+              arr.push(blogs);
+              if (blogs > 1) blogs--;
+            }
+            else {
+              arr.unshift(blogs);
+              if (blogs < total) blogs++;
+            }
+          }
+        }
+        else {
+          arr.push(-1);
+        }
+      }
+      $.each(arr, function(index, value) {
+        count = (index + 1).toString();
+        image = '#blogImage' + count;
+        caption = '#blogCaption' + count;
+        modal = '#blogModal' + count;
+        if (value > 0) {
+          item = '0' + value.toString();
+          thumb = "img/blog/" + item + "-thumbnail.jpg";
+          title = "blog/captions/" + item + "-caption.html";
+          post = "blog/posts/" + item + "-post.html";
+          $(image).attr('src', thumb);
+          $(caption).load(title);
+          $(modal).load(post);
+          $(caption).parent().show();
+        }
+        else {
+          $(image).removeAttr('src');
+          $(caption).parent().hide();
+        }
+      });
+      // Check if there are newer posts
+      if (blogs + limit < total) {
+        if (arrow > 0) {
+          $('.blog-paging').attr('new',blogs);
+        }
+        else {
+          $('.blog-paging').attr('new',blogs + limit);
+        }
+        $('#newPosts').show();
+      }
+      else {
+        $('#newPosts').hide();
+      }
+      // Check if there are older posts
+      if (blogs > 1) {
+        if (arrow < 0) {
+          $('.blog-paging').attr('old',blogs);
+        }
+        else {
+          $('.blog-paging').attr('old',blogs - limit);
+        }
+        $('#oldPosts').show();
+      }
+      else {
+        $('#oldPosts').hide();
+      }
+    }
   </script> 
 </body>
 
