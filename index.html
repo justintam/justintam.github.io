@@ -164,8 +164,13 @@
         }
       });
       // Check if there are newer posts
-      if (blogs + limit < total) {
-        $('.blog-paging').attr('new',blogs + limit);
+      if (blogs < total) {
+        if (arrow > 0) {
+          $('.blog-paging').attr('new',blogs);
+        }
+        else {
+          $('.blog-paging').attr('new',blogs + limit + 1);
+        }
         $('#newPosts').show();
       }
       else {
@@ -175,6 +180,9 @@
       if (blogs > 0) {
         $('.blog-paging').attr('old',blogs);
         $('#oldPosts').show();
+      }
+      else {
+        $('#oldPosts').hide();
       }
       else {
         $('#oldPosts').hide();
