@@ -127,7 +127,7 @@
       var post = '';
       if (blogs < 0) blogs = total;
       while(arr.length < limit) {
-        if (blogs > 0 && blogs < total) {
+        if (blogs > 0 && blogs <= total) {
           if (arr.indexOf(blogs) === -1) {
             if (arrow < 0) {
               arr.push(blogs);
