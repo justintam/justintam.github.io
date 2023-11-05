@@ -178,7 +178,12 @@
       }
       // Check if there are older posts
       if (blogs > 0) {
-        $('.blog-paging').attr('old',blogs);
+        if (arrow < 0) {
+          $('.blog-paging').attr('old',blogs);
+        }
+        else {
+          $('.blog-paging').attr('old',blogs - limit);
+        }
         $('#oldPosts').show();
       }
       else {
