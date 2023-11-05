@@ -165,12 +165,7 @@
       });
       // Check if there are newer posts
       if (blogs + limit < total) {
-        if (arrow > 0) {
-          $('.blog-paging').attr('new',blogs);
-        }
-        else {
-          $('.blog-paging').attr('new',blogs + limit + 1);
-        }
+        $('.blog-paging').attr('new',blogs + limit + 1);
         $('#newPosts').show();
       }
       else {
@@ -178,12 +173,7 @@
       }
       // Check if there are older posts
       if (blogs > 0) {
-        if (arrow < 0) {
-          $('.blog-paging').attr('old',blogs);
-        }
-        else {
-          $('.blog-paging').attr('old',blogs - limit);
-        }
+        $('.blog-paging').attr('old',blogs - limit);
         $('#oldPosts').show();
       }
       else {
