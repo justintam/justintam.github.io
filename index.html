@@ -134,10 +134,8 @@
               if (blogs > 0) blogs--;
             }
             else {
-              if (blogs < total) {
-                blogs++;
-                arr.unshift(blogs);
-              }
+              arr.unshift(blogs + 1);
+              if (blogs < total) blogs++;
             }
           }
         }
