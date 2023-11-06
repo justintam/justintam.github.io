@@ -98,7 +98,7 @@
       $('header').load("section/header.html");
       $('#skills').load("section/skills.html");
       // Load the blog elements before executing the loadBlog function
-      $('#blog').load("section/blog.html", function() { loadBlog(); });
+      $('#blog').load("section/blog.html", function() { loadBlog(); $('#newPosts').hide(); });
       $('#about').load("section/about.html");
       $('footer').load("section/footer.html");
       
