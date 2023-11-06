@@ -165,7 +165,7 @@
       });
       // Check if there are newer posts
       if (blogs + limit < total) {
-        if (arrow > 0 && blogs > 1) {
+        if (arrow > 0 && blogs > limit) {
           $('.blog-paging').attr('new',blogs);
         }
         else if (blogs < 1) {
