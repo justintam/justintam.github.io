@@ -168,7 +168,7 @@
         if (arrow > 0) {
           $('.blog-paging').attr('new',blogs);
         }
-        else if (blogs == 1) {
+        else if (blogs <= 1) {
           $('.blog-paging').attr('new',blogs + 1);
         }
         else {
