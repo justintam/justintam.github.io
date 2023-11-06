@@ -165,13 +165,8 @@
       });
       // Check if there are newer posts
       if (blogs + limit < total) {
-        if (arrow > 0) {
-          if (blogs == 2) {
-            $('.blog-paging').attr('new',blogs + limit);
-          }
-          else {
-            $('.blog-paging').attr('new',blogs);
-          }
+        if (arrow > 0 && blogs > 1) {
+          $('.blog-paging').attr('new',blogs);
         }
         else if (blogs < 1) {
           // If we're at the last blog post, then go to the next blog post
