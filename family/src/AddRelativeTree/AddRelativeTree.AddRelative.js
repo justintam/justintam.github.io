@@ -3,7 +3,7 @@ import AddRelativeTree from "./AddRelativeTree.js"
 
 export function AddRelative({store, cont, card_dim, cardEditForm, labels}) {
   return function ({d, scale}) {
-    const transition_time = 0
+    const transition_time = 500
 
     if (!scale && window.innerWidth < 800) scale = window.innerWidth / 800
     toggleAllRels(store.getTree().data, false)
