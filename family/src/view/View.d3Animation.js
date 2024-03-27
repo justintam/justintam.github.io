@@ -103,7 +103,7 @@ export default function d3AnimationView({store, cont, Card}) {
 
     function calculateDelay(d) {
       if (!props.initial) return 0
-      const delay_level = 800,
+      const delay_level = 100,
         ancestry_levels = Math.max(...tree.data.map(d=>d.is_ancestry ? d.depth : 0))
       let delay = d.depth*delay_level;
       if ((d.depth !== 0 || !!d.spouse) && !d.is_ancestry) {
