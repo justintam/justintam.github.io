@@ -75,9 +75,9 @@ function cardEditParams() {
     {type: 'text', placeholder: 'last name', key: 'ln'},
     {type: 'text', placeholder: 'birth', key: 'birth'},
     {type: 'text', placeholder: 'death', key: 'death'},
-    {type: 'text', placeholder: 'chinese name', key: 'label'}
-    {type: 'text', placeholder: 'gender', key: 'gender'}
-    {type: 'text', placeholder: 'description', key: 'desc'}
+    {type: 'text', placeholder: 'chinese name', key: 'label'},
+    {type: 'text', placeholder: 'gender', key: 'gender'},
+    {type: 'text', placeholder: 'description', key: 'desc'},
     {type: 'text', placeholder: 'image url', key: 'image'}
   ]
 }
