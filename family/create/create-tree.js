@@ -1,9 +1,9 @@
-import f3 from '../src/index.js'
+import f3 from '././src/index.js'
 import Edit from './elements/Edit.js'
 import ReactiveTextarea from "./elements/ReactiveTextarea.js"
 import ReactiveVanila from "./elements/ReactiveVanila.js"
 import Display from "./elements/Display.js"
-import {Form} from "../src/view/elements/Form.js"
+import {Form} from "././src/view/elements/Form.js"
 
 
 (async () => {
