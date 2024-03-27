@@ -3,7 +3,7 @@ export function CardBody({d,card_dim,card_display}) {
     <g class="card-body">
       <rect width="${card_dim.w}" height="${card_dim.h}" class="card-body-rect" />
       <g transform="translate(${card_dim.text_x}, ${card_dim.text_y})">
-        <text clip-path="url(#card_text_clip)">
+        <text id="card_text" clip-path="url(#card_text_clip)">
           <tspan x="${0}" dy="${14}">${card_display[0](d.data)}</tspan>
           <tspan x="${0}" dy="${14}" font-size="10">${card_display[1](d.data)}</tspan>
           <tspan x="${0}" dy="${14}" font-size="10">${card_display[2](d.data)}</tspan>
