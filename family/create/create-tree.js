@@ -57,24 +57,40 @@ import {Form} from "../src/view/elements/Form.js"
 })();
 
 function firstNode() {
-  return [{id: '0', rels: {}, data: {'first name': 'Name', 'last name': "Surname", 'birthday': 1970,
-      avatar: 'https://static8.depositphotos.com/1009634/988/v/950/depositphotos_9883921-stock-illustration-no-user-profile-picture.jpg', gender: "M"}}]
+  return [{id: '0', rels: {}, data: {'fn': 'Unknown', 'ln': 'Tan', 'birth': ?, 'death': ?, label: '譚', gender: 'M'
+	  desc: '',
+      image: 'https://static8.depositphotos.com/1009634/988/v/950/depositphotos_9883921-stock-illustration-no-user-profile-picture.jpg'}},
+	  {id: '1', rels: {}, data: {'fn': 'Hongzhi', 'ln': 'Tan', 'birth': 901, 'death': 974, label: '譚', gender: 'M'
+	  desc: 'Lived in Xijun Village, Qianzhou, Jiangxi (now Ningdu, Jiangxi). In the first year of Jianlong of the Song Dynasty (960), due to local unrest, he moved to Shashui Village, Zhujili, Baochang County, Nanxiong to avoid chaos. In the third year of Jianlong of the Song Dynasty (962), he returned to Qianzhou after peace. Hong Gui gave birth to two sons, Tan Hong and Tan Han.',
+      image: 'https://p3-sdbk2-media.byteimg.com/tos-cn-i-xv4ileqgde/2c9ac1a536c74c7fa588e5f99fca4b33~tplv-xv4ileqgde-resize-w:750.image'}},
+	  {id: '2', rels: {}, data: {'fn': 'Hong', 'ln': 'Tan', 'birth': 930, 'death': 1000, label: '譚洪', gender: 'M'
+	  desc: '',
+      image: 'https://p3-sdbk2-media.byteimg.com/tos-cn-i-xv4ileqgde/2c9ac1a536c74c7fa588e5f99fca4b33~tplv-xv4ileqgde-resize-w:750.image'}},
+	  ]
 }
 
 function cardEditParams() {
   return [
-    {type: 'text', placeholder: 'first name', key: 'first name'},
-    {type: 'text', placeholder: 'last name', key: 'last name'},
-    {type: 'text', placeholder: 'birthday', key: 'birthday'},
-    {type: 'text', placeholder: 'avatar', key: 'avatar'}
+    {type: 'text', placeholder: 'first name', key: 'fn'},
+    {type: 'text', placeholder: 'last name', key: 'ln'},
+    {type: 'text', placeholder: 'birth', key: 'birth'},
+    {type: 'text', placeholder: 'death', key: 'death'},
+    {type: 'text', placeholder: 'chinese name', key: 'label'}
+    {type: 'text', placeholder: 'gender', key: 'gender'}
+    {type: 'text', placeholder: 'description', key: 'desc'}
+    {type: 'text', placeholder: 'image url', key: 'image'}
   ]
 }
 
 function cardDisplay() {
-  const d1 = d => `${d.data['first name'] || ''} ${d.data['last name'] || ''}`,
-    d2 = d => `${d.data['birthday'] || ''}`
-  d1.create_form = "{first name} {last name}"
-  d2.create_form = "{birthday}"
+  const d1 = d => `${d.data['label'] || ''}`,
+	d2 = d => `${d.data['fn'] || ''} ${d.data['ln'] || ''}`,
+    d3 = d => `(${d.data['birth'] || ''} - ${d.data['death'] || ''})`,
+	d4 = d => `${d.data['desc'] || ''}`
+  d1.create_form = "{label}"
+  d2.create_form = "{fn} {ln}"
+  d3.create_form = "{birth} - {death}"
+  d4.create_form = "{desc}"
 
-  return [d1, d2]
+  return [d1, d2, d3, d4]
 }
