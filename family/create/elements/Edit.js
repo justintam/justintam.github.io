@@ -20,7 +20,7 @@ export default function Edit(cont_selector, card_edit) {
     const inputs = cont.querySelector(".inputs")
     inputs.innerHTML = ""
     card_edit.forEach(d => {
-      if (d.key === 'avatar') return
+      if (d.key === 'image') return
       const cont = document.createElement("div")
       cont.style.position = "relative";
       cont.innerHTML = (`
