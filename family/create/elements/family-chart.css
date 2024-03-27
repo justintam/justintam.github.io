@@ -41,7 +41,7 @@
   stroke: #000;
 }
 .f3 .card_family_tree rect {
-  transition: 0.3s;
+  transition: 0.1s;
 }
 .f3 .card_family_tree:hover rect {
   transform: scale(1.1);
@@ -49,7 +49,7 @@
 .f3 .card_add_relative {
   cursor: pointer;
   color: #fff;
-  transition: 0.3s;
+  transition: 0.1s;
 }
 .f3 .card_add_relative circle {
   fill: rgba(0, 0, 0, 0);
@@ -59,14 +59,14 @@
 }
 .f3 .card_edit.pencil_icon {
   color: #fff;
-  transition: 0.3s;
+  transition: 0.1s;
 }
 .f3 .card_edit.pencil_icon:hover {
   color: black;
 }
 .f3 .card_break_link, .f3 .link_upper, .f3 .link_lower, .f3 .link_particles {
   transform-origin: 50% 50%;
-  transition: 1s;
+  transition: 0.1s;
 }
 .f3 .card_break_link {
   color: #fff;
