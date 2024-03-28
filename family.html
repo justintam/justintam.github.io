@@ -23,7 +23,7 @@
       font-weight: 700;
       letter-spacing: -.01em;
       line-height: 1.3;
-      margin: 0 15px;
+      margin: 0 10px;
       position: relative;
       text-align: left;
       text-decoration: none;
@@ -81,6 +81,7 @@
         new go.Diagram("divFamilyTree",  // must be the ID or reference to div
           {
 	    "toolManager.hoverDelay": 100,  // 100 milliseconds instead of the default 850
+	    "toolManager.toolTipDuration": 15000,
 	    "draggingTool.isEnabled": false,
             allowCopy: false,
             layout:  // create a TreeLayout for the family tree
@@ -248,7 +249,12 @@
 
       document.getElementById('centerRoot').addEventListener('click', () => {
         familyTree.scale = 1;
-        familyTree.scrollToRect(familyTree.findNodeForKey(0).actualBounds);
+        familyTree.scrollToRect(familyTree.findNodeForKey("0").actualBounds);
+      });
+	    
+      document.getElementById('centerCurrent').addEventListener('click', () => {
+        familyTree.scale = 1;
+        familyTree.scrollToRect(familyTree.findNodeForKey("9").actualBounds);
       });
     }
     window.addEventListener('DOMContentLoaded', init);
@@ -256,6 +262,10 @@
 
   <center><h2>Tan Clan Genealogy (譚氏族譜)</h2></center>
   <div id="divFamilyTree" style="background-color: white; border: solid 1px black; width: 97vw; height: 80vh; margin: 0.5vh 0.5vw;"></div>
-  <p style="margin: 0.5vh 1vw"><button id="zoomToFit" class="button-80" role="button">Zoom to Fit</button> <button id="centerRoot" class="button-80" role="button">Center on Founder</button></p>
+  <p style="margin: 0.5vh 1vw">
+    <button id="zoomToFit" class="button-80" role="button">Zoom to Fit</button>
+    <button id="centerRoot" class="button-80" role="button">Center on Founder</button>
+    <button id="centerCurrent" class="button-80" role="button">Center on Current</button>
+  </p>
 </body>
 </html>
