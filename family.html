@@ -23,7 +23,7 @@
       font-weight: 700;
       letter-spacing: -.01em;
       line-height: 1.3;
-      margin: 0 10px;
+      margin: 0 5px;
       position: relative;
       text-align: left;
       text-decoration: none;
@@ -226,20 +226,43 @@
       var nodeDataArray = [
         { key: "0", name: "Tan Hongzhi", gender: "M", chineseName: "譚宏帙", styleName: "崇紀", artName: "虔翁", birthYear: "901", deathYear: "974", fullTitle: "Served successively as the crown prince's grand protector (太子太保), Minister of the Ministry of Personnel (吏部尚書), Vice Minister of the Metropolitan Procuratorate (都察院左右侍郎), Left and Right Censor (左右禦吏), and Governor of Jiangxi (江西總制). Achieved Jinshi (進士).", description: "Born during the Five Dynasties period, Hongzhi lived in Xijun Village, Qianzhou, Jiangxi (now Ningdu, Jiangxi). In the first year of Jianlong of the Song Dynasty (960), due to local unrest, he moved to Shashui Village, Zhujili, Baochang County, Nanxiong to avoid chaos. In the third year of Jianlong of the Song Dynasty (962), he returned to Qianzhou after peace. Hong Gui gave birth to two sons, Tan Hong and Tan Han.", image: "https://p3-sdbk2-media.byteimg.com/tos-cn-i-xv4ileqgde/2c9ac1a536c74c7fa588e5f99fca4b33~tplv-xv4ileqgde-resize-w:750.image" },
         { key: "1", parent: "0", name: "Tan Hong", gender: "M", chineseName: "譚洪", styleName: "少參", artName: "叠山", birthYear: "930", deathYear: "1000", fullTitle: "Jinshi (進士)", description: "First son of Tan Honzhi. Appointed as a Confucian scholar (jinshi) in Guangdong in the first year of Zhidao in the Song Dynasty (955) and moved to Shuangqiao Village in Panyu." },
+        { key: "1a", parent: "0", name: "Tan Han", gender: "M", chineseName: "譚瀚", styleName: "文江", artName: "美水", birthYear: "", deathYear: "", fullTitle: "", description: "Second son of Tan Hongzhi. Moved from Qianzhou to Nanxiong Zhuji Lane." },
         { key: "2", parent: "1", name: "Tan Jiayan", gender: "M", chineseName: "譚嘉言", styleName: "", artName: "", birthYear: "", deathYear: "", fullTitle: "Jinshi (進士)", description: "Only son of Tan Hong. Appointed as Confucian scholar (jinshi) in Guangdong." },
+        { key: "2a", parent: "1a", name: "Tan Bocang", gender: "M", chineseName: "譚伯倉", styleName: "", artName: "", birthYear: "988", deathYear: "1061", fullTitle: "Minister of the Ministry of Justice", description: "Only son of Tan Han. He eventually retired to Pengshanli, Renhua." },
         { key: "3", parent: "2", name: "Tan Wen", gender: "M", chineseName: "譚文", styleName: "", artName: "", birthYear: "", deathYear: "", fullTitle: "", description: "Only son of Tan Jiayan" },
         { key: "4", parent: "3", name: "Tan Weiri", gender: "M", chineseName: "譚惟日", styleName: "", artName: "", birthYear: "", deathYear: "", fullTitle: "", description: "First son of Tan Wen" },
-	{ key: "4a", parent: "3", name: "Tan Weiyue", gender: "M", chineseName: "譚惟月", styleName: "", artName: "", birthYear: "", deathYear: "", fullTitle: "", description: "Second son of Tan Wen" },
+        { key: "4a", parent: "3", name: "Tan Weiyue", gender: "M", chineseName: "譚惟月", styleName: "", artName: "", birthYear: "", deathYear: "", fullTitle: "", description: "Second son of Tan Wen" },
         { key: "5", parent: "4a", name: "Tan Bing", gender: "M", chineseName: "譚炳", styleName: "", artName: "", birthYear: "", deathYear: "", fullTitle: "", description: "Only son of Tan Weiyue" },
         { key: "6", parent: "5", name: "Tan Qianyi", gender: "M", chineseName: "譚千一", styleName: "", artName: "", birthYear: "", deathYear: "", fullTitle: "", description: "Only son of Tan Bing" },
         { key: "7", parent: "6", name: "Tan Shida", gender: "M", chineseName: "譚仕達", styleName: "", artName: "", birthYear: "", deathYear: "", fullTitle: "", description: "Only son of Tan Qianyi" },
-        { key: "8", parent: "7", name: "Tan Taibo", gender: "M", chineseName: "譚泰伯", styleName: "", artName: "", birthYear: "", deathYear: "", fullTitle: "", description: "First son of Tan Shida" },	
-	{ key: "8a", parent: "7", name: "Tan Zhongbo", gender: "M", chineseName: "譚仲伯", styleName: "紹康", artName: "虔源", birthYear: "1265", deathYear: "1300", fullTitle: "", description: "Second son of Tan Shida. Moved to Yakou village - progenitor of the Yakou branch of the Tan family." },
-	{ key: "9", parent: "8a", name: "Tan Xishan", gender: "M", chineseName: "譚溪山", styleName: "", artName: "", birthYear: "", deathYear: "", fullTitle: "", description: "Only son of Tan Zhongbo" },
-
-	{ key: "1a", parent: "0", name: "Tan Han", gender: "M", chineseName: "譚瀚", styleName: "文江", artName: "美水", birthYear: "", deathYear: "", fullTitle: "", description: "Second son of Tan Hongzhi. Moved from Qianzhou to Nanxiong Zhuji Lane." },
-        { key: "2a", parent: "1a", name: "Tan Bocang", gender: "M", chineseName: "譚伯倉", styleName: "", artName: "", birthYear: "", deathYear: "", fullTitle: "", description: "Only son of Tan Han" }
-
+        { key: "8", parent: "7", name: "Tan Taibo", gender: "M", chineseName: "譚泰伯", styleName: "", artName: "", birthYear: "", deathYear: "", fullTitle: "", description: "First son of Tan Shida" },
+        { key: "8a", parent: "7", name: "Tan Zhongbo", gender: "M", chineseName: "譚仲伯", styleName: "紹康", artName: "虔源", birthYear: "1265", deathYear: "1300", fullTitle: "", description: "Second son of Tan Shida. Moved to Yakou village - progenitor of the Yakou branch of the Tan family." },
+        { key: "9", parent: "8a", name: "Tan Nanfu", gender: "M", chineseName: "譚南釜", styleName: "振祖", artName: "溪山", birthYear: "1281", deathYear: "1337", fullTitle: "", description: "Only son of Tan Zhongbo" },
+        { key: "10", parent: "9", name: "Tan Yiju", gender: "M", chineseName: "譚一舉", styleName: "伯家", artName: "圍長", birthYear: "1312", deathYear: "1389", fullTitle: "", description: "First son of Tan Nanfu" },
+        { key: "10a", parent: "9", name: "Tan Jiju", gender: "M", chineseName: "譚及舉", styleName: "", artName: "", birthYear: "", deathYear: "", fullTitle: "", description: "Second son of Tan Nanfu" },
+        { key: "10b", parent: "9", name: "Two Daughters", gender: "F" },
+        { key: "11", parent: "10", name: "Tan Guangyang", gender: "M", chineseName: "譚廣養", styleName: "存雍", artName: "竹溪", birthYear: "1355", deathYear: "1415", fullTitle: "", description: "Fourth son of Tan Yiju" },
+        { key: "12", parent: "11", name: "Tan Zhisheng", gender: "M", chineseName: "譚志生", styleName: "以齡", artName: "雲谿", birthYear: "", deathYear: "", fullTitle: "", description: "Fourth son of Tan Guangyang" },
+        { key: "13", parent: "12", name: "Tan Qian", gender: "M", chineseName: "譚潛", styleName: "克琛", artName: "東墅", birthYear: "", deathYear: "", fullTitle: "", description: "Only son of Tan Zhisheng" },
+        { key: "14", parent: "13", name: "Tan Yuanxi", gender: "M", chineseName: "譚元壐", styleName: "世則", artName: "春山", birthYear: "", deathYear: "", fullTitle: "", description: "Fourth son of Tan Qian" },
+        { key: "15", parent: "14", name: "Tan Gui", gender: "M", chineseName: "譚珪", styleName: "敬司", artName: "翠厓", birthYear: "", deathYear: "", fullTitle: "", description: "Only son of Tan Yuanxi" },
+        { key: "16", parent: "15", name: "Tan Gongyi", gender: "M", chineseName: "譚公議", styleName: "淑論", artName: "南田", birthYear: "", deathYear: "", fullTitle: "", description: "Second son of Tan Gui" },
+        { key: "17", parent: "16", name: "Tan Zhao", gender: "M", chineseName: "譚趙", styleName: "日亮", artName: "鄉涯", birthYear: "", deathYear: "", fullTitle: "", description: "Fifth son of Tan Gongyi" },
+        { key: "18", parent: "17", name: "Tan Jingxue", gender: "M", chineseName: "譚敬學", styleName: "少龍", artName: "華月", birthYear: "", deathYear: "", fullTitle: "", description: "Only son of Tan Zhao" },
+        { key: "19", parent: "18", name: "Tan Hongle", gender: "M", chineseName: "譚弘樂", styleName: "敏相", artName: "聲和", birthYear: "", deathYear: "", fullTitle: "", description: "Second son of Tan Jingxue" },
+        { key: "20", parent: "19", name: "Tan Shiyu", gender: "M", chineseName: "譚士裕", styleName: "際韶", artName: "樂朝", birthYear: "", deathYear: "", fullTitle: "", description: "Second son of Tan Hongle" },
+        { key: "21", parent: "20", name: "Tan Yuanzhang", gender: "M", chineseName: "譚元章", styleName: "良燦", artName: "東湖", birthYear: "", deathYear: "", fullTitle: "", description: "First son of Tan Shiyu" },
+        { key: "22", parent: "21", name: "Tan Shibin", gender: "M", chineseName: "譚世彬", styleName: "士君", artName: "文菴", birthYear: "", deathYear: "", fullTitle: "", description: "Third son of Tan Yuanzhang" },
+        { key: "23", parent: "22", name: "Tan Xiang", gender: "M", chineseName: "譚祥", styleName: "秋亮", artName: "疇軒", birthYear: "", deathYear: "", fullTitle: "", description: "Fourth son of Tan Shibin" },
+        { key: "24", parent: "23", name: "Tan Guobiao", gender: "M", chineseName: "譚國表", styleName: "秀堯", artName: "", birthYear: "", deathYear: "", fullTitle: "", description: "Only son of Tan Xiang" },
+        { key: "25", parent: "24", name: "Tan Guanfu", gender: "M", chineseName: "譚官富", styleName: "廉廣", artName: "", birthYear: "January 1, 1844", deathYear: "February 26, 1921", fullTitle: "", description: "Only son of Tan Guobiao" },
+        { key: "26", parent: "25", name: "Tan Guanzhi", gender: "M", chineseName: "譚官志", styleName: "惠明", artName: "", birthYear: "November 29, 1868", deathYear: "September 8, 1881", fullTitle: "", description: "First son of Tan Guanfu, died young without heirs" },
+        { key: "26a", parent: "25", name: "Tan Pin", gender: "M", chineseName: "譚品", styleName: "容明", artName: "", birthYear: "September 19, 1875", deathYear: "February 1, 1915", fullTitle: "", description: "Third son of Tan Guanfu" },
+        { key: "27", parent: "26", name: "Tan Yapan", gender: "M", chineseName: "譚亞潘", styleName: "益順", artName: "", birthYear: "May 1, 1897", deathYear: "July 2, 1936", fullTitle: "", description: "First son of Tan Pin, made son of Tan Guanzhi to continue his line" },
+        { key: "28", parent: "27", name: "Tan Jingquan", gender: "M", chineseName: "譚鏡泉", styleName: "", artName: "", birthYear: "June 12, 1914", deathYear: "December 16, 2000", fullTitle: "", description: "First son of Tan Yapan" },
+        { key: "29", parent: "28", name: "Tan Zhenzhong", gender: "M", chineseName: "譚震中", styleName: "", artName: "", birthYear: "June 2, 1952", deathYear: "", fullTitle: "", description: "Only son of Tan Jingquan" },
+        { key: "30", parent: "29", name: "Tan Zhihan", gender: "M", chineseName: "譚智瀚", styleName: "", artName: "", birthYear: "May 24, 1989", deathYear: "", fullTitle: "", description: "Only son of Tan Zhenzhong" },
+        { key: "31", parent: "30", name: "Tan Fengjun", gender: "M", chineseName: "譚鳳俊", styleName: "", artName: "", birthYear: "October 26, 2023", deathYear: "", fullTitle: "", description: "Only son of Tan Zhihan" }
       ];
 
       // create the model for the family tree
@@ -247,14 +270,14 @@
 
       document.getElementById('zoomToFit').addEventListener('click', () => familyTree.commandHandler.zoomToFit());
 
-      document.getElementById('centerRoot').addEventListener('click', () => {
+      document.getElementById('zoomToTop').addEventListener('click', () => {
         familyTree.scale = 1;
         familyTree.scrollToRect(familyTree.findNodeForKey("0").actualBounds);
       });
 	    
-      document.getElementById('centerCurrent').addEventListener('click', () => {
+      document.getElementById('zoomToBottom').addEventListener('click', () => {
         familyTree.scale = 1;
-        familyTree.scrollToRect(familyTree.findNodeForKey("9").actualBounds);
+        familyTree.scrollToRect(familyTree.findNodeForKey("31").actualBounds);
       });
     }
     window.addEventListener('DOMContentLoaded', init);
@@ -264,8 +287,8 @@
   <div id="divFamilyTree" style="background-color: white; border: solid 1px black; width: 97vw; height: 80vh; margin: 0.5vh 0.5vw;"></div>
   <p style="margin: 0.5vh 1vw">
     <button id="zoomToFit" class="button-80" role="button">Zoom to Fit</button>
-    <button id="centerRoot" class="button-80" role="button">Center on Founder</button>
-    <button id="centerCurrent" class="button-80" role="button">Center on Current</button>
+    <button id="zoomToTop" class="button-80" role="button">Zoom to Top</button>
+    <button id="zoomToBottom" class="button-80" role="button">Zoom to Bottom</button>
   </p>
 </body>
 </html>
