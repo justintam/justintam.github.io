@@ -22,7 +22,7 @@
             allowCopy: false,
             layout:  // create a TreeLayout for the family tree
               $(go.TreeLayout,
-                { angle: 90, nodeSpacing: 5 })
+                { angle: 90, nodeSpacing: 10 })
           });
 
       var bluegrad = $(go.Brush, "Linear", { 0: "rgb(60, 204, 254)", 1: "rgb(70, 172, 254)" });
@@ -150,18 +150,18 @@
         { key: "1", parent: "0", name: "Tan Hong", gender: "M", chineseName: "譚洪", styleName: "少參", artName: "叠山", birthYear: "930", deathYear: "1000", fullTitle: "Jinshi (進士)", description: "First son of Tan Honzhi. Appointed as a Confucian scholar (jinshi) in Guangdong in the first year of Zhidao in the Song Dynasty (955) and moved to Shuangqiao Village in Panyu." },
         { key: "2", parent: "1", name: "Tan Jiayan", gender: "M", chineseName: "譚嘉言", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "Jinshi (進士)", description: "Only son of Tan Hong. Appointed as Confucian scholar (jinshi) in Guangdong." },
         { key: "3", parent: "2", name: "Tan Wen", gender: "M", chineseName: "譚文", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Only son of Tan Jiayan" },
-        { key: "4a", parent: "3", name: "Tan Weiyue", gender: "M", chineseName: "譚惟月", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Second son of Tan Wen" },
+        { key: "4", parent: "3", name: "Tan Weiri", gender: "M", chineseName: "譚惟日", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "First son of Tan Wen" },
+	{ key: "4a", parent: "3", name: "Tan Weiyue", gender: "M", chineseName: "譚惟月", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Second son of Tan Wen" },
         { key: "5", parent: "4a", name: "Tan Bing", gender: "M", chineseName: "譚炳", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Only son of Tan Weiyue" },
         { key: "6", parent: "5", name: "Tan Qianyi", gender: "M", chineseName: "譚千一", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Only son of Tan Bing" },
         { key: "7", parent: "6", name: "Tan Shida", gender: "M", chineseName: "譚仕達", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Only son of Tan Qianyi" },
-        { key: "8a", parent: "7", name: "Tan Zhongbo", gender: "M", chineseName: "譚仲伯", styleName: "紹康", artName: "虔源", birthYear: "1265", deathYear: "1300", fullTitle: "", description: "Second son of Tan Shida. Moved to Yakou village - progenitor of the Yakou branch of the Tan family." },
+        { key: "8", parent: "7", name: "Tan Taibo", gender: "M", chineseName: "譚泰伯", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "First son of Tan Shida." },	
+	{ key: "8a", parent: "7", name: "Tan Zhongbo", gender: "M", chineseName: "譚仲伯", styleName: "紹康", artName: "虔源", birthYear: "1265", deathYear: "1300", fullTitle: "", description: "Second son of Tan Shida. Moved to Yakou village - progenitor of the Yakou branch of the Tan family." },
 	{ key: "9", parent: "8a", name: "Tan Xishan", gender: "M", chineseName: "譚溪山", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Only son of Tan Zhongbo." },
 
 	{ key: "1a", parent: "0", name: "Tan Han", gender: "M", chineseName: "譚瀚", styleName: "文江", artName: "美水", birthYear: "?", deathYear: "?", fullTitle: "", description: "Second son of Tan Hongzhi. Moved from Qianzhou to Nanxiong Zhuji Lane" },
-        { key: "2a", parent: "1a", name: "Tan Bocang", gender: "M", chineseName: "伯倉", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Only son of Tan Han." },
+        { key: "2a", parent: "1a", name: "Tan Bocang", gender: "M", chineseName: "伯倉", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Only son of Tan Han." }
 
-	{ key: "4", parent: "3", name: "Tan Weiri", gender: "M", chineseName: "譚惟日", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "First son of Tan Wen" },
-	{ key: "8", parent: "7", name: "Tan Taibo", gender: "M", chineseName: "譚泰伯", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "First son of Tan Shida." }
       ];
 
       // create the model for the family tree
