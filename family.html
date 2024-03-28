@@ -10,8 +10,8 @@
       // For details, see https://gojs.net/latest/intro/buildingObjects.html
       const $ = go.GraphObject.make;  // for conciseness in defining templates
 
-      myDiagram =
-        new go.Diagram("myDiagramDiv",  // must be the ID or reference to div
+      familyTree =
+        new go.Diagram("divFamilyTree",  // must be the ID or reference to div
           {
             allowCopy: false,
             layout:  // create a TreeLayout for the family tree
@@ -23,7 +23,7 @@
       var pinkgrad = $(go.Brush, "Linear", { 0: "rgb(255, 192, 203)", 1: "rgb(255, 142, 203)" });
 
       // Set up a Part as a legend, and place it directly on the diagram
-      myDiagram.add(
+      familyTree.add(
         $(go.Part, "Table",
           { position: new go.Point(10, 10), selectable: false },
           $(go.TextBlock, "Key",
@@ -74,7 +74,7 @@
       }
 
       // replace the default Node template in the nodeTemplateMap
-      myDiagram.nodeTemplate =
+      familyTree.nodeTemplate =
         $(go.Node, "Auto",
           { deletable: false, toolTip: tooltiptemplate },
           new go.Binding("text", "name"),
@@ -100,7 +100,7 @@
         );
 
       // define the Link template
-      myDiagram.linkTemplate =
+      familyTree.linkTemplate =
         $(go.Link,  // the whole link panel
           { routing: go.Link.Orthogonal, corner: 5, selectable: false },
           $(go.Shape));  // the default black link shape
@@ -120,10 +120,12 @@
       ];
 
       // create the model for the family tree
-      myDiagram.model = new go.TreeModel(nodeDataArray);
+      familyTree.model = new go.TreeModel(nodeDataArray);
     }
     window.addEventListener('DOMContentLoaded', init);
   </script>
+  
+  <div id="divFamilyTree" style="background-color: white; border: solid 1px black; width: 100%; height: 600px"></div>
 
   </body>
   </html>
