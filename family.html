@@ -65,9 +65,8 @@
           $(go.TextBlock,
             {
               font: "bold 10pt Helvetica, bold Arial, sans-serif",
-              wrap: go.TextBlock.WrapFit,
-              margin: 5,
-              width: 500
+              wrap: go.TextBlock.WrapDesiredSize,
+              margin: 5
             },
             new go.Binding("text", "", tooltipText))
         );
@@ -106,13 +105,13 @@
             },
             new go.Binding("fill", "gender", genderBrushConverter)),
           $(go.Panel, "Vertical",
-		    $(go.Picture,
-			  {
-                alignment: go.Spot.Center,
-				width: 60,
-				height: 60,
-                margin: 6
-			  },
+	    $(go.Picture,
+              {
+		alignment: go.Spot.Center,
+		width: 60,
+		height: 60,
+		margin: 6
+              },
               new go.Binding("source", avatarImage)),
             $(go.TextBlock,
               {
