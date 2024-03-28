@@ -53,8 +53,11 @@
       // get tooltip text from the object's data
       function tooltipText(person) {
         var str = "";
-        if (person.fullTitle !== "") str += "Achievements\n" + person.fullTitle + "\n\n";
-        if (person.description !== "") str += "Biography\n" + person.description;
+        if (person.description !== "") str += person.description;
+        if (person.fullTitle !== "") {
+	  if (person.description !== "") str += "\n\n";
+	  str += person.fullTitle;
+	}
         return str;
       }
 
