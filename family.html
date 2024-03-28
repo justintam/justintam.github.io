@@ -25,18 +25,18 @@
       // Set up a Part as a legend, and place it directly on the diagram
       familyTree.add(
         $(go.Part, "Table",
-          { position: new go.Point(10, 10), selectable: false },
+          { position: new go.Point(10, -100), selectable: false },
           $(go.TextBlock, "Key",
             { row: 0, font: "bold 10pt Helvetica, Arial, sans-serif" }),  // end row 0
           $(go.Panel, "Horizontal",
-            { row: 1, alignment: go.Spot.TopLeftSides },
+            { row: 1, alignment: go.Spot.TopLeft },
             $(go.Shape, "Rectangle",
               { desiredSize: new go.Size(30, 30), fill: bluegrad, margin: 5 }),
             $(go.TextBlock, "Males",
               { font: "bold 8pt Helvetica, bold Arial, sans-serif" })
           ),  // end row 1
           $(go.Panel, "Horizontal",
-            { row: 2, alignment: go.Spot.TopLeftSides },
+            { row: 2, alignment: go.Spot.TopLeft },
             $(go.Shape, "Rectangle",
               { desiredSize: new go.Size(30, 30), fill: pinkgrad, margin: 5 }),
             $(go.TextBlock, "Females",
