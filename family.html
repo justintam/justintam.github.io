@@ -6,8 +6,6 @@
     <script id="code">
     function init() {
 
-      // Since 2.2 you can also author concise templates with method chaining instead of GraphObject.make
-      // For details, see https://gojs.net/latest/intro/buildingObjects.html
       const $ = go.GraphObject.make;  // for conciseness in defining templates
 
       familyTree =
@@ -25,7 +23,7 @@
       // Set up a Part as a legend, and place it directly on the diagram
       familyTree.add(
         $(go.Part, "Table",
-          { position: new go.Point(-500, 10), selectable: false },
+          { position: new go.Point(-500, 50), selectable: false },
           $(go.TextBlock, "Key",
             { row: 0, font: "bold 10pt Helvetica, Arial, sans-serif" }),  // end row 0
           $(go.Panel, "Horizontal",
@@ -48,7 +46,7 @@
       function tooltipText(person) {
         var str = "";
         if (person.fullTitle !== "") str += "Achievements\n" + person.fullTitle + "\n\n";
-        if (person.description !== "") str += "Biography\n" + person.description + "\n\n";
+        if (person.description !== "") str += "Biography\n" + person.description;
         return str;
       }
 
@@ -105,7 +103,7 @@
                 alignment: go.Spot.Center,
 				width: 60,
 				height: 60,
-				margin: 2
+                margin: 6
 			  },
               new go.Binding("source", avatarImage)),
             $(go.TextBlock,
