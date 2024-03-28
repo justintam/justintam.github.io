@@ -33,19 +33,19 @@
       -webkit-user-select: none;
       touch-action: manipulation;
     }
-	
+
     .button-80:not(:disabled):hover {
       transform: scale(1.05);
     }
-	
+
     .button-80:not(:disabled):hover:active {
       transform: scale(1.05) translateY(.125rem);
     }
-	
+
     .button-80:focus {
       outline: 0 solid transparent;
     }
-	
+
     .button-80:focus:before {
       content: "";
       left: calc(-1*.375rem);
@@ -55,15 +55,15 @@
       transition: border-radius;
       user-select: none;
     }
-	
+
     .button-80:focus:not(:focus-visible) {
       outline: 0 solid transparent;
     }
-	
+
     .button-80:focus:not(:focus-visible):before {
       border-width: 0;
     }
-	
+
     .button-80:not(:disabled):active {
       transform: translateY(.125rem);
     }
@@ -80,9 +80,9 @@
       familyTree =
         new go.Diagram("divFamilyTree",  // must be the ID or reference to div
           {
-	    "toolManager.hoverDelay": 100,  // 100 milliseconds instead of the default 850
-	    "toolManager.toolTipDuration": 15000,
-	    "draggingTool.isEnabled": false,
+            "toolManager.hoverDelay": 100,  // 100 milliseconds instead of the default 850
+            "toolManager.toolTipDuration": 15000,
+            "draggingTool.isEnabled": false,
             allowCopy: false,
             layout:  // create a TreeLayout for the family tree
               $(go.TreeLayout,
@@ -114,14 +114,23 @@
           )  // end row 2
         ));
 
+      function isValid(input) {
+        if (input !== null && input !== "") {
+          return true;
+        }
+        return false;
+      }
+
       // get tooltip text from the object's data
       function tooltipText(person) {
         var str = "";
-        if (person.description !== "") str += person.description;
-        if (person.fullTitle !== "") {
-	  if (person.description !== "") str += "\n\n";
-	  str += person.fullTitle;
-	}
+        let desc = person.description;
+        let title = person.fullTitle;
+        if (isValid(desc)) str += desc;
+        if (isValid(title)) {
+          if (isValid(desc)) str += "\n\n";
+          str += title;
+        }
         return str;
       }
 
@@ -149,31 +158,35 @@
       // get image from the object's data
       function avatarImage(person) {
         var str = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png";
-	if (person.image !== undefined) str = person.image;
+        let image = person.image;
+        if (isValid(image)) str = image;
         return str;
       }
 
       // get name text from the object's data
       function fullnameText(person) {
         var str = person.name;
-	if (person.chineseName !== "") str += " (" + person.chineseName + ")";
+	let cname = person.chineseName;
+        if (isValid(cname)) str += " (" + cname + ")";
         return str;
       }
 
       // get lifespan text from the object's data
       function lifespanText(person) {
         var str = "";
-	if (person.birthYear !== "" && person.deathYear !== "") {
-	  str = "(" + person.birthYear + " - " + person.deathYear + ")";
-	}
-	else if (person.birthYear !== "")
-	{
-	  str = "(" + person.birthYear + " - ?)";
-	}
-	else if (person.deathYear !== "")
-	{
-	  str = "(? - " + person.deathYear + ")";
-	}
+	let birth = person.birthYear;
+	let death = person.deathYear;
+        if (isValid(birth) && isValid(death)) {
+          str = "(" + birth + " - " + death + ")";
+        }
+        else if (isValid(birth))
+        {
+          str = "(" + birth + " - ?)";
+        }
+        else if (isValid(death))
+        {
+          str = "(? - " + death + ")";
+        }
         return str;
       }
 
@@ -191,12 +204,12 @@
             },
             new go.Binding("fill", "gender", genderBrushConverter)),
           $(go.Panel, "Vertical",
-	    $(go.Picture,
+            $(go.Picture,
               {
-		alignment: go.Spot.Center,
-		width: 60,
-		height: 60,
-		margin: 6
+                alignment: go.Spot.Center,
+                width: 60,
+                height: 60,
+                margin: 6
               },
               new go.Binding("source", avatarImage)),
             $(go.TextBlock,
@@ -255,14 +268,15 @@
         { key: "22", parent: "21", name: "Tan Shibin", gender: "M", chineseName: "譚世彬", styleName: "士君", artName: "文菴", birthYear: "", deathYear: "", fullTitle: "", description: "Third son of Tan Yuanzhang" },
         { key: "23", parent: "22", name: "Tan Xiang", gender: "M", chineseName: "譚祥", styleName: "秋亮", artName: "疇軒", birthYear: "", deathYear: "", fullTitle: "", description: "Fourth son of Tan Shibin" },
         { key: "24", parent: "23", name: "Tan Guobiao", gender: "M", chineseName: "譚國表", styleName: "秀堯", artName: "", birthYear: "", deathYear: "", fullTitle: "", description: "Only son of Tan Xiang" },
-        { key: "25", parent: "24", name: "Tan Guanfu", gender: "M", chineseName: "譚官富", styleName: "廉廣", artName: "", birthYear: "January 1, 1844", deathYear: "February 26, 1921", fullTitle: "", description: "Only son of Tan Guobiao" },
-        { key: "26", parent: "25", name: "Tan Guanzhi", gender: "M", chineseName: "譚官志", styleName: "惠明", artName: "", birthYear: "November 29, 1868", deathYear: "September 8, 1881", fullTitle: "", description: "First son of Tan Guanfu, died young without heirs" },
-        { key: "26a", parent: "25", name: "Tan Pin", gender: "M", chineseName: "譚品", styleName: "容明", artName: "", birthYear: "September 19, 1875", deathYear: "February 1, 1915", fullTitle: "", description: "Third son of Tan Guanfu" },
-        { key: "27", parent: "26", name: "Tan Yapan", gender: "M", chineseName: "譚亞潘", styleName: "益順", artName: "", birthYear: "May 1, 1897", deathYear: "July 2, 1936", fullTitle: "", description: "First son of Tan Pin, made son of Tan Guanzhi to continue his line" },
-        { key: "28", parent: "27", name: "Tan Jingquan", gender: "M", chineseName: "譚鏡泉", styleName: "", artName: "", birthYear: "June 12, 1914", deathYear: "December 16, 2000", fullTitle: "", description: "First son of Tan Yapan" },
-        { key: "29", parent: "28", name: "Tan Zhenzhong", gender: "M", chineseName: "譚震中", styleName: "", artName: "", birthYear: "June 2, 1952", deathYear: "", fullTitle: "", description: "Only son of Tan Jingquan" },
-        { key: "30", parent: "29", name: "Tan Zhihan", gender: "M", chineseName: "譚智瀚", styleName: "", artName: "", birthYear: "May 24, 1989", deathYear: "", fullTitle: "", description: "Only son of Tan Zhenzhong" },
-        { key: "31", parent: "30", name: "Tan Fengjun", gender: "M", chineseName: "譚鳳俊", styleName: "", artName: "", birthYear: "October 26, 2023", deathYear: "", fullTitle: "", description: "Only son of Tan Zhihan" }
+        { key: "25", parent: "24", name: "Tan Guanfu", gender: "M", chineseName: "譚官富", styleName: "廉廣", artName: "", birthYear: "1844", deathYear: "1921", fullTitle: "", description: "Only son of Tan Guobiao" },
+        { key: "26", parent: "25", name: "Tan Guanzhi", gender: "M", chineseName: "譚官志", styleName: "惠明", artName: "", birthYear: "1868", deathYear: "1881", fullTitle: "", description: "First son of Tan Guanfu, died young without heirs" },
+        { key: "26a", parent: "25", name: "Tan Pin", gender: "M", chineseName: "譚品", styleName: "容明", artName: "", birthYear: "1875", deathYear: "1915", fullTitle: "", description: "Third son of Tan Guanfu" },
+        { key: "27", parent: "26", name: "Tan Yapan", gender: "M", chineseName: "譚亞潘", styleName: "益順", artName: "", birthYear: "1897", deathYear: "1936", fullTitle: "", description: "First son of Tan Pin, made son of Tan Guanzhi to continue his line" },
+        { key: "28", parent: "27", name: "Tan Jingquan", gender: "M", chineseName: "譚鏡泉", styleName: "", artName: "", birthYear: "1914", deathYear: "2000", fullTitle: "", description: "First son of Tan Yapan" },
+        { key: "29", parent: "28", name: "Tan Zhenzhong", gender: "M", chineseName: "譚震中", styleName: "", artName: "", birthYear: "1952", deathYear: "", fullTitle: "", description: "Only son of Tan Jingquan" },
+        { key: "30", parent: "29", name: "Tan Zhihan", gender: "M", chineseName: "譚智瀚", styleName: "", artName: "", birthYear: "1989", deathYear: "", fullTitle: "", description: "Only son of Tan Zhenzhong" },
+        { key: "30a", parent: "29", name: "Tan Kaidi", gender: "F", chineseName: "譚凯笛", styleName: "", artName: "", birthYear: "1992", deathYear: "", fullTitle: "", description: "Only daughter of Tan Zhenzhong" },
+        { key: "31", parent: "30", name: "Tan Fengjun", gender: "M", chineseName: "譚鳳俊", styleName: "", artName: "", birthYear: "2023", deathYear: "", fullTitle: "", description: "Only son of Tan Zhihan" }
       ];
 
       // create the model for the family tree
@@ -274,7 +288,7 @@
         familyTree.scale = 1;
         familyTree.scrollToRect(familyTree.findNodeForKey("0").actualBounds);
       });
-	    
+
       document.getElementById('zoomToBottom').addEventListener('click', () => {
         familyTree.scale = 1;
         familyTree.scrollToRect(familyTree.findNodeForKey("31").actualBounds);
