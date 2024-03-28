@@ -7,14 +7,14 @@
   <link rel="shortcut icon" type="image/svg" href="/family/logo.svg">
   <script src="../plugins/d3.v6.js"></script>
   <script src="../plugins/d3plus-text.js"></script>
+  <script>
+    d3plus.textWrap().container(d3.select("#card_text")).draw();
+  </script>
   <link rel="stylesheet" href="../styles/tree.css">
 
 </head>
 <body>
 <div id="FamilyChart" style="height: 1000px; max-height: calc(150vh - 80px); width: 1200px;max-width:100%;margin: auto;position: relative"></div>
 <script src="basic-tree.js" type="module"></script>
-<script>
-  textWrap().container(d3.select("#card_text")).draw();
-</script>
 </body>
 </html>
