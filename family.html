@@ -25,7 +25,7 @@
       // Set up a Part as a legend, and place it directly on the diagram
       familyTree.add(
         $(go.Part, "Table",
-          { position: new go.Point(-100, 10), selectable: false },
+          { position: new go.Point(-500, 10), selectable: false },
           $(go.TextBlock, "Key",
             { row: 0, font: "bold 10pt Helvetica, Arial, sans-serif" }),  // end row 0
           $(go.Panel, "Horizontal",
@@ -33,22 +33,22 @@
             $(go.Shape, "Rectangle",
               { desiredSize: new go.Size(30, 30), fill: bluegrad, margin: 5 }),
             $(go.TextBlock, "Males",
-              { font: "bold 8pt Helvetica, bold Arial, sans-serif" })
+              { font: "bold 10pt Helvetica, bold Arial, sans-serif" })
           ),  // end row 1
           $(go.Panel, "Horizontal",
             { row: 2, alignment: go.Spot.Left },
             $(go.Shape, "Rectangle",
               { desiredSize: new go.Size(30, 30), fill: pinkgrad, margin: 5 }),
             $(go.TextBlock, "Females",
-              { font: "bold 8pt Helvetica, bold Arial, sans-serif" })
+              { font: "bold 10pt Helvetica, bold Arial, sans-serif" })
           )  // end row 2
         ));
 
       // get tooltip text from the object's data
       function tooltipText(person) {
         var str = "";
-        if (person.fullTitle !== "") str += "Achievements: " + person.fullTitle + "\n\n";
-        if (person.description !== "") str += "Biography: " + person.description + "\n\n";
+        if (person.fullTitle !== "") str += "Achievements\n" + person.fullTitle + "\n\n";
+        if (person.description !== "") str += "Biography\n" + person.description + "\n\n";
         return str;
       }
 
@@ -58,10 +58,10 @@
           { "Border.fill": "whitesmoke", "Border.stroke": "black" },
           $(go.TextBlock,
             {
-              font: "bold 8pt Helvetica, bold Arial, sans-serif",
+              font: "bold 10pt Helvetica, bold Arial, sans-serif",
               wrap: go.TextBlock.WrapFit,
               margin: 5,
-			  width: 300
+			  width: 800
             },
             new go.Binding("text", "", tooltipText))
         );
@@ -73,7 +73,14 @@
         return "orange";
       }
 
-      // get tooltip text from the object's data
+      // get image from the object's data
+      function avatarImage(person) {
+        var str = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png";
+		if (person.image !== undefined) str = person.image;
+        return str;
+      }
+
+      // get lifespan text from the object's data
       function lifespanText(person) {
         var str = "(" + person.birthYear + " - " + person.deathYear + ")";
         return str;
@@ -93,23 +100,31 @@
             },
             new go.Binding("fill", "gender", genderBrushConverter)),
           $(go.Panel, "Vertical",
+		    $(go.Picture,
+			  {
+				column: 1,
+				width: 60,
+				height: 60,
+				margin: 2
+			  },
+              new go.Binding("source", avatarImage))
             $(go.TextBlock,
               {
-                font: "bold 8pt Helvetica, bold Arial, sans-serif",
+                font: "bold 10pt Helvetica, bold Arial, sans-serif",
                 alignment: go.Spot.Center,
                 margin: 6
               },
               new go.Binding("text", "name")),
             $(go.TextBlock,
               {
-                font: "bold 8pt Helvetica, bold Arial, sans-serif",
+                font: "bold 10pt Helvetica, bold Arial, sans-serif",
                 alignment: go.Spot.Center,
                 margin: 6
               },
               new go.Binding("text", "chineseName")),
             $(go.TextBlock,
               {
-                font: "bold 8pt Helvetica, bold Arial, sans-serif",
+                font: "bold 10pt Helvetica, bold Arial, sans-serif",
                 alignment: go.Spot.Center,
                 margin: 6
               },
