@@ -10,7 +10,7 @@
 </head>
 <body>
   <script src="https://unpkg.com/gojs@2.3.16/release/go.js"></script>
-  <div class="p-4 w-full">
+  <div>
     <script id="code">
     function init() {
 
@@ -19,6 +19,8 @@
       familyTree =
         new go.Diagram("divFamilyTree",  // must be the ID or reference to div
           {
+	    "toolManager.hoverDelay": 100,  // 100 milliseconds instead of the default 850
+	    "draggingTool.isEnabled": false,
             allowCopy: false,
             layout:  // create a TreeLayout for the family tree
               $(go.TreeLayout,
@@ -31,7 +33,7 @@
       // Set up a Part as a legend, and place it directly on the diagram
       familyTree.add(
         $(go.Part, "Table",
-          { position: new go.Point(-300, 50), selectable: false },
+          { position: new go.Point(-100, 50), selectable: false },
           $(go.TextBlock, "Key",
             { row: 0, font: "bold 10pt Helvetica, Arial, sans-serif" }),  // end row 0
           $(go.Panel, "Horizontal",
@@ -85,7 +87,14 @@
       // get image from the object's data
       function avatarImage(person) {
         var str = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png";
-		if (person.image !== undefined) str = person.image;
+	if (person.image !== undefined) str = person.image;
+        return str;
+      }
+
+      // get name text from the object's data
+      function fullnameText(person) {
+        var str = person.name;
+	if (person.chineseName !== "") str += "(" + person.chineseName + ")";
         return str;
       }
 
@@ -123,14 +132,7 @@
                 alignment: go.Spot.Center,
                 margin: 6
               },
-              new go.Binding("text", "name")),
-            $(go.TextBlock,
-              {
-                font: "bold 10pt Helvetica, bold Arial, sans-serif",
-                alignment: go.Spot.Center,
-                margin: 6
-              },
-              new go.Binding("text", "chineseName")),
+              new go.Binding("text", fullnameText)),
             $(go.TextBlock,
               {
                 font: "bold 10pt Helvetica, bold Arial, sans-serif",
@@ -145,7 +147,7 @@
       familyTree.linkTemplate =
         $(go.Link,  // the whole link panel
           { routing: go.Link.Orthogonal, corner: 5, selectable: false },
-          $(go.Shape));  // the default black link shape
+          $(go.Shape, { strokeWidth: 3, stroke: '#424242' }));
 
       // here's the family data
       var nodeDataArray = [
@@ -158,22 +160,29 @@
         { key: "5", parent: "4a", name: "Tan Bing", gender: "M", chineseName: "譚炳", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Only son of Tan Weiyue" },
         { key: "6", parent: "5", name: "Tan Qianyi", gender: "M", chineseName: "譚千一", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Only son of Tan Bing" },
         { key: "7", parent: "6", name: "Tan Shida", gender: "M", chineseName: "譚仕達", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Only son of Tan Qianyi" },
-        { key: "8", parent: "7", name: "Tan Taibo", gender: "M", chineseName: "譚泰伯", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "First son of Tan Shida." },	
+        { key: "8", parent: "7", name: "Tan Taibo", gender: "M", chineseName: "譚泰伯", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "First son of Tan Shida" },	
 	{ key: "8a", parent: "7", name: "Tan Zhongbo", gender: "M", chineseName: "譚仲伯", styleName: "紹康", artName: "虔源", birthYear: "1265", deathYear: "1300", fullTitle: "", description: "Second son of Tan Shida. Moved to Yakou village - progenitor of the Yakou branch of the Tan family." },
-	{ key: "9", parent: "8a", name: "Tan Xishan", gender: "M", chineseName: "譚溪山", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Only son of Tan Zhongbo." },
+	{ key: "9", parent: "8a", name: "Tan Xishan", gender: "M", chineseName: "譚溪山", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Only son of Tan Zhongbo" },
 
-	{ key: "1a", parent: "0", name: "Tan Han", gender: "M", chineseName: "譚瀚", styleName: "文江", artName: "美水", birthYear: "?", deathYear: "?", fullTitle: "", description: "Second son of Tan Hongzhi. Moved from Qianzhou to Nanxiong Zhuji Lane" },
-        { key: "2a", parent: "1a", name: "Tan Bocang", gender: "M", chineseName: "伯倉", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Only son of Tan Han." }
+	{ key: "1a", parent: "0", name: "Tan Han", gender: "M", chineseName: "譚瀚", styleName: "文江", artName: "美水", birthYear: "?", deathYear: "?", fullTitle: "", description: "Second son of Tan Hongzhi. Moved from Qianzhou to Nanxiong Zhuji Lane." },
+        { key: "2a", parent: "1a", name: "Tan Bocang", gender: "M", chineseName: "伯倉", styleName: "", artName: "", birthYear: "?", deathYear: "?", fullTitle: "", description: "Only son of Tan Han" }
 
       ];
 
       // create the model for the family tree
       familyTree.model = new go.TreeModel(nodeDataArray);
+
+      document.getElementById('zoomToFit').addEventListener('click', () => familyTree.commandHandler.zoomToFit());
+
+      document.getElementById('centerRoot').addEventListener('click', () => {
+        familyTree.scale = 1;
+        familyTree.scrollToRect(familyTree.findNodeForKey(0).actualBounds);
+      });
     }
     window.addEventListener('DOMContentLoaded', init);
   </script>
   
   <div id="divFamilyTree" style="background-color: white; border: solid 1px black; width: 97vw; height: 97vh; margin: 0.5vh 0.5vw;"></div>
-
+  <p><button id="zoomToFit">Zoom to Fit</button> <button id="centerRoot">Center on Founder</button></p>
 </body>
 </html>
