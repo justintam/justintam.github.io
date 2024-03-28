@@ -102,12 +102,12 @@
           $(go.Panel, "Vertical",
 		    $(go.Picture,
 			  {
-				column: 1,
+                alignment: go.Spot.Center,
 				width: 60,
 				height: 60,
 				margin: 2
 			  },
-              new go.Binding("source", avatarImage))
+              new go.Binding("source", avatarImage)),
             $(go.TextBlock,
               {
                 font: "bold 10pt Helvetica, bold Arial, sans-serif",
