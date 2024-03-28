@@ -2,7 +2,7 @@
   <html lang="en">
   <body>
   <script src="https://unpkg.com/gojs@2.3.16/release/go.js"></script>
-  <div id="allSampleContent" class="p-4 w-full">
+  <div class="p-4 w-full">
     <script id="code">
     function init() {
 
@@ -29,14 +29,14 @@
           $(go.TextBlock, "Key",
             { row: 0, font: "bold 10pt Helvetica, Arial, sans-serif" }),  // end row 0
           $(go.Panel, "Horizontal",
-            { row: 1, alignment: go.Spot.Left },
+            { row: 1, alignment: go.Spot.TopLeftSides },
             $(go.Shape, "Rectangle",
               { desiredSize: new go.Size(30, 30), fill: bluegrad, margin: 5 }),
             $(go.TextBlock, "Males",
               { font: "bold 8pt Helvetica, bold Arial, sans-serif" })
           ),  // end row 1
           $(go.Panel, "Horizontal",
-            { row: 2, alignment: go.Spot.Left },
+            { row: 2, alignment: go.Spot.TopLeftSides },
             $(go.Shape, "Rectangle",
               { desiredSize: new go.Size(30, 30), fill: pinkgrad, margin: 5 }),
             $(go.TextBlock, "Females",
@@ -45,11 +45,10 @@
         ));
 
       // get tooltip text from the object's data
-      function tooltipTextConverter(person) {
+      function tooltipText(person) {
         var str = "";
-        str += "Born: " + person.birthYear;
-        if (person.deathYear !== undefined) str += "\nDied: " + person.deathYear;
-        if (person.reign !== undefined) str += "\nReign: " + person.reign;
+        if (person.fullTitle !== "") str += "Achievements: " + person.fullTitle;
+        if (person.description !== "") str += "\n\nBiography: " + person.description;
         return str;
       }
 
@@ -63,7 +62,7 @@
               wrap: go.TextBlock.WrapFit,
               margin: 5
             },
-            new go.Binding("text", "", tooltipTextConverter))
+            new go.Binding("text", "", tooltipText))
         );
 
       // define Converters to be used for Bindings
@@ -71,6 +70,12 @@
         if (gender === "M") return bluegrad;
         if (gender === "F") return pinkgrad;
         return "orange";
+      }
+
+      // get tooltip text from the object's data
+      function lifespanText(person) {
+        var str = "(" + person.birthYear + " - " + person.deathYear + ")";
+        return str;
       }
 
       // replace the default Node template in the nodeTemplateMap
@@ -95,7 +100,9 @@
               },
               new go.Binding("text", "name")),
             $(go.TextBlock,
-              new go.Binding("text", "chineseName"))
+              new go.Binding("text", "chineseName")),
+            $(go.TextBlock,
+              new go.Binding("text", lifespanText))
           )
         );
 
@@ -125,7 +132,7 @@
     window.addEventListener('DOMContentLoaded', init);
   </script>
   
-  <div id="divFamilyTree" style="background-color: white; border: solid 1px black; width: 100%; height: 600px"></div>
+  <div id="divFamilyTree" style="background-color: white; border: solid 1px black; width: 98vw; height: 98vh; margin: 0.5vh 0.5vw;"></div>
 
   </body>
   </html>
